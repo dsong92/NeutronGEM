@@ -1,1 +1,1 @@
-/usr/local/bin/NeutronSource
+/pad/dsong/geant4.10.06.p02-install/bin/NeutronSource

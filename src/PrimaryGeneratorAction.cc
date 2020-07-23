@@ -66,7 +66,7 @@
 PrimaryGeneratorAction::PrimaryGeneratorAction(DetectorConstruction* det)
 : G4VUserPrimaryGeneratorAction(), fParticleGun(0),fEnvelopeBox(0), fDetector(det)
 {
-  //G4int n_particle = 200;
+  //G4int n_particle = 60;
   G4int n_particle = 1;
   fParticleGun  = new G4ParticleGun(n_particle);
 
@@ -142,7 +142,8 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   //G4double z0 = +0.05 * envSizeZ;//Fe55 experiment
   G4double z0 = -0.48 * envSizeZ;// gd emit electron
 
-  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
+  //fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
+  fParticleGun->SetParticlePosition(G4ThreeVector(0,0,z0)); // for alpha spreading
   //fParticleGun->SetParticlePosition(G4ThreeVector(0,0,10));
 
   fParticleGun->GeneratePrimaryVertex(anEvent);

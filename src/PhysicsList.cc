@@ -86,8 +86,8 @@ PhysicsList::PhysicsList()
   RegisterPhysics(fHadronElastic);
   
   // Hadron Inelastic Physics
-  fHadronInelastic = new G4HadronPhysicsFTFP_BERT_HP(verb);
-  //fHadronInelastic = new G4HadronPhysicsQGSP_BIC_HP(verb); // original
+  //fHadronInelastic = new G4HadronPhysicsFTFP_BERT_HP(verb);
+  fHadronInelastic = new G4HadronPhysicsQGSP_BIC_HP(verb); // original
   //fHadronInelastic = new G4HadronPhysicsQGSP_BIC_AllHP(verb);
   ////fHadronInelastic = new G4HadronInelasticQBBC(verb);
   ////fHadronInelastic = new G4HadronPhysicsINCLXX(verb);

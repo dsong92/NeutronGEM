@@ -48,15 +48,15 @@ class EventAction : public G4UserEventAction
   public:
     virtual void BeginOfEventAction(const G4Event*);
     virtual void   EndOfEventAction(const G4Event*); //original
-    //virtual void EndOfEventAction(const G4Event*, G4Track* sTrack);
     
     void AddEdep (G4double Edep); // original
-    //void AddEdep (G4double Edep, G4Track* sTrack);
     void AddEflow(G4double Eflow);          
+    void AddLength(G4double Length);          
                 
   private:
     G4double fTotalEnergyDeposit;
     G4double fTotalEnergyFlow;   
+    G4double fTotalLength;   //song add
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
