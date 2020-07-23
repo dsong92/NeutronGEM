@@ -74,7 +74,6 @@
 #include "G4UnitsTable.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4SubtractionSolid.hh"
-
 //----------------------
 
 
@@ -122,30 +121,11 @@ void DetectorConstruction::DefineMaterials()
   G4Element* Be = new G4Element("Beryllium","Be" ,  4.,  9.01*g/mole);
   G4Element* N  = new G4Element("Nitrogen" ,"N"  ,  7., 14.01*g/mole);
   G4Element* O  = new G4Element("Oxygen"   ,"O"  ,  8., 16.00*g/mole);
-  //G4Element* Cr = new G4Element("Chromium" ,"Cr" , 24., 51.99*g/mole);
-  //G4Element* Fe = new G4Element("Iron"     ,"Fe" , 26., 55.84*g/mole);
-  //G4Element* Ni = new G4Element("Nickel"   ,"Ni" , 28., 58.69*g/mole);
   
   G4Material* BeO = 
   new G4Material("BeO", 3.05*g/cm3, ncomponents=2);
   BeO->AddElement(Be, natoms=1);
   BeO->AddElement( O, natoms=1);
-  
-  //G4Material* inox = 
-  //new G4Material("Stainless-Steel", 8*g/cm3, ncomponents=3);
-  //inox->AddElement(Fe, 74*perCent);
-  //inox->AddElement(Cr, 18*perCent);
-  //inox->AddElement(Ni,  8*perCent);
-
-  //G4Material* Air = 
-  //new G4Material("Air", 1.290*mg/cm3, ncomponents=2);
-  //Air->AddElement(N, 70.*perCent);
-  //Air->AddElement(O, 30.*perCent);
-
-  //fWorldMaterial = Air;
-
-  
-  ///G4cout << *(G4Material::GetMaterialTable()) << G4endl;
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -189,7 +169,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
 
   // Ar:CO2 (70:30) @ STP conditions
   G4double mixtureDensity = (Argon->GetDensity() * 70/100.0 + CO2->GetDensity() * 30/100.0) ;
-  G4Material *ArCO2 = new G4Material("Ar/CO2",mixtureDensity,2) ;
+  G4double Temperature = 300.*kelvin;
+  G4double pressure = 10.*atmosphere;
+  G4Material *ArCO2 = new G4Material("Ar/CO2",mixtureDensity,2,kStateGas,Temperature, pressure);
+  //G4Material *ArCO2 = new G4Material("Ar/CO2",mixtureDensity,2, kStateGas, 300*kelvin, 200.e3*pascal);
   ArCO2->AddMaterial(Argon, 0.7) ;
   ArCO2->AddMaterial(CO2, 0.3) ;
 

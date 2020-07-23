@@ -44,7 +44,7 @@
 
 EventAction::EventAction()
 :G4UserEventAction(),
- fTotalEnergyDeposit(0.), fTotalEnergyFlow(0.)
+ fTotalEnergyDeposit(0.), fTotalEnergyFlow(0.), fTotalLength(0.)
 { }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -58,6 +58,7 @@ void EventAction::BeginOfEventAction(const G4Event*)
 {
   fTotalEnergyDeposit = 0.;
   fTotalEnergyFlow = 0.; 
+  fTotalLength = 0.; //song add
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -72,6 +73,12 @@ void EventAction::AddEflow(G4double Eflow)
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// song add
+void EventAction::AddLength(G4double Length)
+{
+  fTotalLength += Length;
+}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void EventAction::EndOfEventAction(const G4Event*)//original
 {
@@ -81,9 +88,9 @@ void EventAction::EndOfEventAction(const G4Event*)//original
   run->AddEdep (fTotalEnergyDeposit);
   run->AddEflow(fTotalEnergyFlow);
   
-  G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
-  G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow); 
-   
+  if(fTotalEnergyDeposit != 0. ) G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
+  if(fTotalEnergyFlow != 0. ) G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow); 
+  if(fTotalLength!=0.) G4AnalysisManager::Instance()->FillH1(14,fTotalLength); 
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

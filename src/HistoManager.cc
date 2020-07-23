@@ -33,6 +33,8 @@
 #include "HistoManager.hh"
 #include "G4UnitsTable.hh"
 
+#include "G4SystemOfUnits.hh"
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 HistoManager::HistoManager()
@@ -61,9 +63,9 @@ void HistoManager::Book()
   analysisManager->SetActivation(true);     //enable inactivation of histograms
 
   // Define histograms start values
-  const G4int kMaxHisto = 15;
+  const G4int kMaxHisto = 19;
   const G4String id[] = {"0","1","2","3","4","5","6","7","8","9",
-                         "10","11","12","13","14"};
+                         "10","11","12","13","14","15","16","17","18"};
   const G4String title[] = 
       { "dummy",                                                       //0
         "total energy deposit in 20mm DriftGap",                       //1
@@ -74,32 +76,31 @@ void HistoManager::Book()
         "energy spectrum of emerging neutrons",                        //6
         "energy spectrum of emerging protons",                         //7
         "energy spectrum of emerging deuterons",                       //8
-        "energy spectrum of emerging alphas",                          //9
+        "E_kin of alphas at entering Drift from B",                    //9
         "energy spectrum of all others emerging ions",                 //10
         "energy spectrum of all others emerging baryons",              //11
         "energy spectrum of all others emerging mesons",               //12
         "energy spectrum of all others emerging leptons (neutrinos)",  //13
-	"Incident Neutron"
+	"Length of Alpha particle in Drift gap",		       //14
+	"Incident Neutron",					       //15
+	"Spread of Alpha , XY plane",				       //16
+	"Spread of Alpha , XZ plane",				       //17
+	"Spread of Alpha , YZ plane"				       //18
       };
   // Default values (to be reset via /analysis/h1/set command) 
   G4int nbins = 100;
   G4double vmin = 0.;
   G4double vmax = 100.;
-  const G4String Neutron = "Incident Nuetron";
   // Create all histograms as inactivated 
   // as we have not yet set nbins, vmin, vmax
   for (G4int k=0; k<kMaxHisto; k++) {
-	if(k<14){
+	if(k<15){
 	G4int ih = analysisManager->CreateH1(id[k], title[k], nbins, vmin, vmax);
         analysisManager->SetH1Activation(ih, false);}
 	else{
   	G4int ig = analysisManager->CreateH2(id[k], title[k], nbins, vmin, vmax, nbins, vmin, vmax);
   	analysisManager->SetH2Activation(ig, false);}
   }
-  //G4int ig = analysisManager->CreateH2("14", Neutron, nbins, vmin, vmax, nbins, vmin, vmax);
-  //analysisManager->SetH2Activation(14, false);
-  //G4int ig = analysisManager->CreateH2(14, "test", 100, -100, 100, 100, -100, 100);
-  //analysisManager->SetH2Activation(ig, false);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

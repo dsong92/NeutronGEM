@@ -108,7 +108,6 @@ void Run::AddEflow(G4double eflow)
   fEnergyFlow += eflow;
   fEnergyFlow2 += eflow*eflow;
 }                  
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void Run::ParticleFlux(G4String name, G4double Ekin)
 {

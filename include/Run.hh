@@ -54,7 +54,6 @@ class Run : public G4Run
     void CountProcesses(const G4VProcess* process);
     void ParticleCount(G4String, G4double); 
     void AddEdep (G4double edep); //original
-    //void AddEdep (G4double edep, G4Track* sTrack);
     void AddEflow (G4double eflow);                   
     void ParticleFlux(G4String, G4double); 
                           

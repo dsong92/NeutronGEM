@@ -60,5 +60,6 @@ endforeach()
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
+message ("destination: ${CMAKE_INSTALL_PREFIX}")
 install(TARGETS NeutronSource DESTINATION bin)
 

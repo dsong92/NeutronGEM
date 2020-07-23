@@ -21,13 +21,25 @@
 #/gun/number 6000
 #
 /analysis/setFileName myresult
-/analysis/h1/set 1 300  0. 300.  keV #gammas
+/analysis/h1/set 1 300  0. 3.  MeV #gammas
 /analysis/h1/set 3 1000  0. 9.  MeV #gammas
 /analysis/h1/set 4 1000  0. 3.  MeV #gammas
 /analysis/h1/set 5 250  0. 250. keV #e-
-/analysis/h1/set 9 1000  0. 3. MeV #e-
+
+/analysis/h1/set 9 300  0. 3. MeV #e-
+/analysis/h1/set 14 300  0. 10. mm #alpha
+
 /analysis/h2/setX 0 100 -100 100 mm
 /analysis/h2/setY 0 100 -100 100 mm
+
+/analysis/h2/setX 1 200 -100 100 mm
+/analysis/h2/setY 1 200 -100 100 mm
+
+/analysis/h2/setX 2 200 -100 100 mm
+/analysis/h2/setY 2 200 -10 1 mm
+
+/analysis/h2/setX 3 200 -100 100 mm
+/analysis/h2/setY 3 200 -10 1 mm
 #
 /run/printProgress 100
 #
