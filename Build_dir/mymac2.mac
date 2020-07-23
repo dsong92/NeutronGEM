@@ -1,0 +1,35 @@
+
+/control/verbose 2
+/run/verbose 2
+/run/initialize
+/vis/open OGL 600x600-0+0
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+/vis/drawVolume
+
+/vis/viewer/zoom 1.4
+
+/vis/viewer/set/style wireframe
+/vis/geometry/set/visibility World 0 true
+
+/vis/scene/add/trajectories rich
+
+/vis/modeling/trajectories/create/drawByAttribute
+
+/vis/modeling/trajectories/drawByAttribute-0/addValue nCap_key nCapture
+/vis/modeling/trajectories/drawByAttribute-0/nCap_key/setLineColour green
+
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set e- red
+/vis/modeling/trajectories/drawByParticleID-0/set neutron yellow
+
+/vis/scene/endOfEventAction accumulate
+
+/vis/filtering/trajectories/create/particleFilter 
+/vis/filtering/trajectories/particleFilter-0/add gamma 
+/vis/filtering/trajectories/particleFilter-0/invert true 
+
+
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+/run/beamOn 1

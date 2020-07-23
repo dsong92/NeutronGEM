@@ -1,0 +1,820 @@
+
+**************************************************************
+ Geant4 version Name: geant4-10-05-patch-01 [MT]   (17-April-2019)
+  << in Multi-threaded mode >> 
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+Checking overlaps for volume Envelope ... OK! 
+Checking overlaps for volume gadolinium ... OK! 
+Checking overlaps for volume DriftGap ... OK! 
+/home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5
+@@@ G4ParticleHPInelastic instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic
+@@@ G4ParticleHPInelasticData instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5
+NeutronHP: /Capture file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/8_17_Oxygen
+NeutronHP: /Elastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/8_17_Oxygen
+NeutronHP: /Inelastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic/CrossSection/8_17_Oxygen
+NeutronHP: /Capture file for Z = 6, A = 12 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 6, A = 13 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 13 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 13 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/8_17_Oxygen
+NeutronHP: /Elastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/8_17_Oxygen
+NeutronHP: /Inelastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic/CrossSection/8_17_Oxygen
+
+### ===  Deexcitation model UAtomDeexcitation is activated for 1 region:
+### ===  Auger cascade flag: 1
+### ===  Ignore cuts flag:   0
+=======================================================================
+======       Radioactive Decay Physics Parameters              ========
+=======================================================================
+Max life time                                     1.4427e+06 ps
+Internal e- conversion flag                       1
+Stored internal conversion coefficients           1
+Enable correlated gamma emission                  0
+Max 2J for sampling of angular correlations       10
+Atomic de-excitation enabled                      1
+Auger electron emission enabled                   1
+Auger cascade enabled                             1
+Check EM cuts disabled for atomic de-excitation   0
+Use Bearden atomic level energies                 0
+=======================================================================
+NeutronHP: /Capture file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/8_17_Oxygen
+NeutronHP: /Elastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/8_17_Oxygen
+NeutronHP: /Inelastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic/CrossSection/8_17_Oxygen
+NeutronHP: /Capture file for Z = 6, A = 12 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 6, A = 13 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 13 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 13 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/8_17_Oxygen
+NeutronHP: /Elastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/8_17_Oxygen
+NeutronHP: /Inelastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic/CrossSection/8_17_Oxygen
+NeutronHP: /Elastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/8_17_Oxygen
+NeutronHP: /Elastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 13 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Elastic/CrossSection/8_17_Oxygen
+@@@ G4ParticleHPInelastic instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Inelastic
+NeutronHP: /Capture file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/8_17_Oxygen
+NeutronHP: /Capture file for Z = 6, A = 12 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 6, A = 13 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 8, A = 18 is not found and NeutronHP will use /home/donghyun/geant4/geant4.10.05.p01-install/share/Geant4-10.5.1/data/G4NDL4.5/Capture/CrossSection/8_17_Oxygen
+
+====================================================================
+                  HADRONIC PROCESSES SUMMARY (verbose level 1)
+
+---------------------------------------------------
+                           Hadronic Processes for GenericIon
+
+  Process: ionElastic
+        Model:          NNDiffuseElastic: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: ionInelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: He3Inelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: alphaInelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: anti_He3Inelastic
+        Model:                      FTFP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: anti_alphaInelastic
+        Model:                      FTFP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: anti_deuteronInelastic
+        Model:                      FTFP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_neutron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: anti_neutronInelastic
+        Model:                      FTFP: 0 meV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_proton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: anti_protonInelastic
+        Model:                      FTFP: 0 meV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: anti_tritonInelastic
+        Model:                      FTFP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: dInelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for gamma
+
+  Process: photonNuclear
+        Model:            BertiniCascade: 0 meV ---> 10 GeV
+     Cr_sctns:            PhotoNuclearXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon+
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: kaon+Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 4 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 5 GeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+     Cr_sctns:  ChipsKaonPlusInelasticXS: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: kaon-Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 4 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 5 GeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+     Cr_sctns: ChipsKaonMinusInelasticXS: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: lambdaInelastic
+        Model:            BertiniCascade: 0 meV ---> 6 GeV
+        Model:                      FTFP: 2 GeV ---> 100 TeV
+     Cr_sctns:   ChipsHyperonInelasticXS: 0 meV ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for neutron
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 19.5 MeV ---> 100 TeV
+        Model:          NeutronHPElastic: 0 meV ---> 20 MeV
+     Cr_sctns:        NeutronHPElasticXS: 0 meV ---> 20 MeV
+     Cr_sctns:        G4NeutronElasticXS: 0 meV ---> 100 TeV
+
+  Process: neutronInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 9.5 GeV ---> 25 GeV
+        Model:            Binary Cascade: 19.9 MeV ---> 9.9 GeV
+        Model:        NeutronHPInelastic: 0 meV ---> 20 MeV
+     Cr_sctns:      NeutronHPInelasticXS: 0 meV ---> 20 MeV
+     Cr_sctns:       Barashenkov-Glauber: 0 meV ---> 100 TeV
+
+  Process: nCapture
+        Model:          NeutronHPCapture: 0 meV ---> 20 MeV
+        Model:               nRadCapture: 19.9 MeV ---> 100 TeV
+     Cr_sctns:        NeutronHPCaptureXS: 0 meV ---> 20 MeV
+     Cr_sctns:        G4NeutronCaptureXS: 0 meV ---> 100 TeV
+
+  Process: nFission
+        Model:          NeutronHPFission: 0 meV ---> 20 MeV
+        Model:                G4LFission: 19.9 MeV ---> 100 TeV
+     Cr_sctns:        NeutronHPFissionXS: 0 meV ---> 20 MeV
+     Cr_sctns:          GheishaFissionXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for pi+
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 1.0001 GeV
+        Model:           hElasticGlauber: 1 GeV ---> 100 TeV
+     Cr_sctns:       Barashenkov-Glauber: 0 meV ---> 100 TeV
+
+  Process: pi+Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 4 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 5 GeV
+     Cr_sctns: Barashenkov-Glauber-Gribov: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for pi-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 1.0001 GeV
+        Model:           hElasticGlauber: 1 GeV ---> 100 TeV
+     Cr_sctns:       Barashenkov-Glauber: 0 meV ---> 100 TeV
+
+  Process: pi-Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 4 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 5 GeV
+     Cr_sctns: Barashenkov-Glauber-Gribov: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for proton
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 meV ---> 100 TeV
+     Cr_sctns:       Barashenkov-Glauber: 0 meV ---> 100 TeV
+
+  Process: protonInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 9.5 GeV ---> 25 GeV
+        Model:            Binary Cascade: 0 meV ---> 9.9 GeV
+     Cr_sctns:       Barashenkov-Glauber: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 meV ---> 100 TeV
+
+  Process: tInelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 meV ---> 100 TeV
+
+================================================================
+     Transportation,         hadElastic,   neutronInelastic,           nCapture
+           nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+     kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+    lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+    sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+       xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+  anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+         tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+      photonNuclear,                msc,              hIoni,            ionIoni
+    nuclearStopping,              eIoni,              eBrem,            annihil
+               phot,              compt,               conv,             muIoni
+            muBrems,         muPairProd,              Decay,   RadioactiveDecay
+
+Set file name: myresult
+### Run 0 starts.
+
+--------- Ranecu engine status ---------
+ Initial seed (index) = 0
+ Current couple of seeds = 1586568115, 83710233
+----------------------------------------
+... open Root analysis file : myresult.root - done
+G4WT2 >      Transportation,         hadElastic,   neutronInelastic,           nCapture
+G4WT2 >            nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+G4WT2 >      kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+G4WT2 >     lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+G4WT2 >     sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+G4WT2 >        xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+G4WT2 > anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+G4WT2 >   anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+G4WT0 >      Transportation,         hadElastic,   neutronInelastic,           nCapture
+G4WT0 >            nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+G4WT2 >          tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+G4WT0 >      kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+G4WT4 >      Transportation,         hadElastic,   neutronInelastic,           nCapture
+G4WT0 >     lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+G4WT3 >      Transportation,         hadElastic,   neutronInelastic,           nCapture
+G4WT6 >      Transportation,         hadElastic,   neutronInelastic,           nCapture
+G4WT4 >            nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+G4WT6 >            nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+G4WT2 >       photonNuclear,                msc,              hIoni,            ionIoni
+G4WT6 >      kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+G4WT7 >      Transportation,         hadElastic,   neutronInelastic,           nCapture
+G4WT6 >     lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+G4WT1 >      Transportation,         hadElastic,   neutronInelastic,           nCapture
+G4WT0 >     sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+G4WT5 >      Transportation,         hadElastic,   neutronInelastic,           nCapture
+G4WT0 >        xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+G4WT4 >      kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+G4WT0 > anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+G4WT2 >     nuclearStopping,              eIoni,              eBrem,            annihil
+G4WT4 >     lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+G4WT6 >     sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+G4WT1 >            nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+G4WT4 >     sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+G4WT5 >            nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+G4WT6 >        xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+G4WT2 >                phot,              compt,               conv,             muIoni
+G4WT6 > anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+G4WT7 >            nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+G4WT6 >   anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+G4WT1 >      kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+G4WT6 >          tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+G4WT0 >   anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+G4WT1 >     lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+G4WT3 >            nFission,    protonInelastic,       pi+Inelastic,       pi-Inelastic
+G4WT1 >     sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+G4WT2 >             muBrems,         muPairProd,              Decay,   RadioactiveDecay
+G4WT3 >      kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+G4WT2 > 
+G4WT4 >        xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+G4WT5 >      kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+G4WT2 > Set file name: myresult
+G4WT7 >      kaon+Inelastic,     kaon-Inelastic,    kaon0LInelastic,    kaon0SInelastic
+G4WT1 >        xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+G4WT7 >     lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+G4WT3 >     lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+G4WT7 >     sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+G4WT1 > anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+G4WT3 >     sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+G4WT4 > anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+G4WT5 >     lambdaInelastic,anti-lambdaInelastic,    sigma-Inelastic,anti_sigma-Inelastic
+G4WT3 >        xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+G4WT0 >          tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+G4WT7 >        xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+G4WT6 >       photonNuclear,                msc,              hIoni,            ionIoni
+G4WT1 >   anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+G4WT6 >     nuclearStopping,              eIoni,              eBrem,            annihil
+G4WT3 > anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+G4WT1 >          tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+G4WT7 > anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+G4WT0 >       photonNuclear,                msc,              hIoni,            ionIoni
+G4WT1 >       photonNuclear,                msc,              hIoni,            ionIoni
+G4WT6 >                phot,              compt,               conv,             muIoni
+G4WT5 >     sigma+Inelastic,anti_sigma+Inelastic,       xi-Inelastic,  anti_xi-Inelastic
+G4WT6 >             muBrems,         muPairProd,              Decay,   RadioactiveDecay
+G4WT4 >   anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+G4WT7 >   anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+G4WT4 >          tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+G4WT1 >     nuclearStopping,              eIoni,              eBrem,            annihil
+G4WT4 >       photonNuclear,                msc,              hIoni,            ionIoni
+G4WT5 >        xi0Inelastic,  anti_xi0Inelastic,    omega-Inelastic,anti_omega-Inelastic
+G4WT1 >                phot,              compt,               conv,             muIoni
+G4WT6 > 
+G4WT5 > anti_protonInelastic,anti_neutronInelastic,anti_deuteronInelastic,anti_tritonInelastic
+G4WT6 > Set file name: myresult
+G4WT4 >     nuclearStopping,              eIoni,              eBrem,            annihil
+G4WT0 >     nuclearStopping,              eIoni,              eBrem,            annihil
+G4WT7 >          tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+G4WT1 >             muBrems,         muPairProd,              Decay,   RadioactiveDecay
+G4WT3 >   anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+G4WT7 >       photonNuclear,                msc,              hIoni,            ionIoni
+G4WT4 >                phot,              compt,               conv,             muIoni
+G4WT0 >                phot,              compt,               conv,             muIoni
+G4WT1 > 
+G4WT0 >             muBrems,         muPairProd,              Decay,   RadioactiveDecay
+G4WT5 >   anti_He3Inelastic,anti_alphaInelastic,         ionElastic,         dInelastic
+G4WT7 >     nuclearStopping,              eIoni,              eBrem,            annihil
+G4WT5 >          tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+G4WT0 > 
+G4WT3 >          tInelastic,       He3Inelastic,     alphaInelastic,       ionInelastic
+G4WT1 > Set file name: myresult
+G4WT3 >       photonNuclear,                msc,              hIoni,            ionIoni
+G4WT7 >                phot,              compt,               conv,             muIoni
+G4WT3 >     nuclearStopping,              eIoni,              eBrem,            annihil
+G4WT0 > Set file name: myresult
+G4WT3 >                phot,              compt,               conv,             muIoni
+G4WT4 >             muBrems,         muPairProd,              Decay,   RadioactiveDecay
+G4WT3 >             muBrems,         muPairProd,              Decay,   RadioactiveDecay
+G4WT5 >       photonNuclear,                msc,              hIoni,            ionIoni
+G4WT7 >             muBrems,         muPairProd,              Decay,   RadioactiveDecay
+G4WT5 >     nuclearStopping,              eIoni,              eBrem,            annihil
+G4WT7 > 
+G4WT3 > 
+G4WT5 >                phot,              compt,               conv,             muIoni
+G4WT7 > Set file name: myresult
+G4WT4 > 
+G4WT3 > Set file name: myresult
+G4WT5 >             muBrems,         muPairProd,              Decay,   RadioactiveDecay
+G4WT4 > Set file name: myresult
+G4WT5 > 
+G4WT5 > Set file name: myresult
+G4WT6 > ### Run 0 starts on worker thread 6.
+G4WT5 > ### Run 0 starts on worker thread 5.
+G4WT1 > ### Run 0 starts on worker thread 1.
+G4WT3 > ### Run 0 starts on worker thread 3.
+G4WT7 > ### Run 0 starts on worker thread 7.
+G4WT0 > ### Run 0 starts on worker thread 0.
+G4WT2 > ### Run 0 starts on worker thread 2.
+G4WT4 > ### Run 0 starts on worker thread 4.
+G4WT4 > ... open Root analysis file : myresult_t4.root - done
+G4WT0 > ... open Root analysis file : myresult_t0.root - done
+G4WT5 > ... open Root analysis file : myresult_t5.root - done
+G4WT2 > ... open Root analysis file : myresult_t2.root - done
+G4WT4 > --> Event 0 starts with initial seeds (27908653,20001523).
+G4WT3 > ... open Root analysis file : myresult_t3.root - done
+G4WT6 > ... open Root analysis file : myresult_t6.root - done
+G4WT7 > ... open Root analysis file : myresult_t7.root - done
+G4WT1 > ... open Root analysis file : myresult_t1.root - done
+G4WT1 > --> Event 1000 starts with initial seeds (34834908,69174162).
+G4WT2 > --> Event 2000 starts with initial seeds (98057164,97004251).
+G4WT7 > --> Event 3000 starts with initial seeds (90538973,85182707).
+G4WT7 > --> Event 4000 starts with initial seeds (58254402,3801697).
+G4WT3 > --> Event 5000 starts with initial seeds (93671766,32150458).
+G4WT2 > --> Event 6000 starts with initial seeds (92668422,54012481).
+G4WT3 > --> Event 7000 starts with initial seeds (97178263,62186979).
+G4WT4 > --> Event 8000 starts with initial seeds (80685458,70719586).
+G4WT2 > --> Event 9000 starts with initial seeds (83818219,26626936).
+G4WT0 > --> Event 10000 starts with initial seeds (37570970,35140690).
+G4WT5 > --> Event 11000 starts with initial seeds (61459772,83460542).
+G4WT5 > --> Event 12000 starts with initial seeds (62883414,28000080).
+G4WT6 > --> Event 13000 starts with initial seeds (15309287,79765530).
+G4WT6 > --> Event 14000 starts with initial seeds (77925281,73716602).
+G4WT6 > --> Event 15000 starts with initial seeds (48099099,43623480).
+G4WT3 > --> Event 16000 starts with initial seeds (68766066,60770628).
+G4WT3 > --> Event 17000 starts with initial seeds (93318776,21323176).
+G4WT7 > --> Event 18000 starts with initial seeds (78454222,29744209).
+G4WT7 > --> Event 19000 starts with initial seeds (81664993,15343792).
+G4WT7 > --> Event 20000 starts with initial seeds (10797950,36189535).
+G4WT2 > --> Event 21000 starts with initial seeds (45473381,82322602).
+G4WT0 > --> Event 22000 starts with initial seeds (11392370,57101304).
+G4WT0 > --> Event 23000 starts with initial seeds (10159363,66605374).
+G4WT5 > --> Event 24000 starts with initial seeds (80181052,53982787).
+G4WT1 > --> Event 25000 starts with initial seeds (39938549,42621825).
+G4WT1 > --> Event 26000 starts with initial seeds (82427367,32220596).
+G4WT6 > --> Event 27000 starts with initial seeds (98184128,42794566).
+G4WT6 > --> Event 28000 starts with initial seeds (4921448,9275436).
+G4WT6 > --> Event 29000 starts with initial seeds (79259879,92926930).
+G4WT7 > --> Event 30000 starts with initial seeds (81980633,82789491).
+G4WT4 > --> Event 31000 starts with initial seeds (25942430,93755132).
+G4WT4 > --> Event 32000 starts with initial seeds (78178059,68108414).
+G4WT1 > --> Event 33000 starts with initial seeds (73579459,91791973).
+G4WT1 > --> Event 34000 starts with initial seeds (15275974,52265962).
+G4WT2 > --> Event 35000 starts with initial seeds (54180325,35587824).
+G4WT2 > --> Event 36000 starts with initial seeds (74792185,61417232).
+G4WT2 > --> Event 37000 starts with initial seeds (11789031,12651183).
+G4WT5 > --> Event 38000 starts with initial seeds (87055176,80359757).
+G4WT3 > --> Event 39000 starts with initial seeds (76238541,45377350).
+G4WT3 > --> Event 40000 starts with initial seeds (68620878,89219306).
+G4WT3 > --> Event 41000 starts with initial seeds (55801115,17052666).
+G4WT7 > --> Event 42000 starts with initial seeds (15626779,49991131).
+G4WT7 > --> Event 43000 starts with initial seeds (16720461,35289153).
+G4WT4 > --> Event 44000 starts with initial seeds (74986276,10047853).
+G4WT1 > --> Event 45000 starts with initial seeds (21897116,67040530).
+G4WT1 > --> Event 46000 starts with initial seeds (88358672,6681163).
+G4WT0 > --> Event 47000 starts with initial seeds (70817758,91859389).
+G4WT5 > --> Event 48000 starts with initial seeds (66990422,7629966).
+G4WT2 > --> Event 49000 starts with initial seeds (37190794,91910874).
+G4WT2 > --> Event 50000 starts with initial seeds (38944454,41733440).
+G4WT2 > --> Event 51000 starts with initial seeds (90303178,87512596).
+G4WT6 > --> Event 52000 starts with initial seeds (13140917,42189168).
+G4WT3 > --> Event 53000 starts with initial seeds (84072708,28837440).
+G4WT3 > --> Event 54000 starts with initial seeds (41689847,67148329).
+G4WT7 > --> Event 55000 starts with initial seeds (83322212,20661566).
+G4WT4 > --> Event 56000 starts with initial seeds (85144998,4298653).
+G4WT4 > --> Event 57000 starts with initial seeds (52046946,60643541).
+G4WT1 > --> Event 58000 starts with initial seeds (24339145,92292682).
+G4WT1 > --> Event 59000 starts with initial seeds (54775045,21943837).
+G4WT1 > --> Event 60000 starts with initial seeds (99424405,49446598).
+G4WT5 > --> Event 61000 starts with initial seeds (75512306,11546998).
+G4WT0 > --> Event 62000 starts with initial seeds (58667042,58970824).
+G4WT0 > --> Event 63000 starts with initial seeds (86728857,54286752).
+G4WT3 > --> Event 64000 starts with initial seeds (45449847,85518026).
+G4WT7 > --> Event 65000 starts with initial seeds (34115967,37827248).
+G4WT7 > --> Event 66000 starts with initial seeds (56779932,45445189).
+G4WT6 > --> Event 67000 starts with initial seeds (36744952,24329490).
+G4WT6 > --> Event 68000 starts with initial seeds (50493024,94568885).
+G4WT4 > --> Event 69000 starts with initial seeds (59083287,79695493).
+G4WT1 > --> Event 70000 starts with initial seeds (20544711,60233860).
+G4WT1 > --> Event 71000 starts with initial seeds (12396805,85701960).
+G4WT2 > --> Event 72000 starts with initial seeds (99995925,18511131).
+G4WT5 > --> Event 73000 starts with initial seeds (85296602,24342471).
+G4WT5 > --> Event 74000 starts with initial seeds (78438971,50301894).
+G4WT0 > --> Event 75000 starts with initial seeds (56544192,19213889).
+G4WT7 > --> Event 76000 starts with initial seeds (37199730,32799144).
+G4WT7 > --> Event 77000 starts with initial seeds (84028054,23335571).
+G4WT3 > --> Event 78000 starts with initial seeds (66533436,56064337).
+G4WT6 > --> Event 79000 starts with initial seeds (50588692,20004189).
+G4WT6 > --> Event 80000 starts with initial seeds (69512025,67075030).
+G4WT1 > --> Event 81000 starts with initial seeds (92481562,24890817).
+G4WT4 > --> Event 82000 starts with initial seeds (32926026,16375145).
+G4WT4 > --> Event 83000 starts with initial seeds (85145708,70362206).
+G4WT2 > --> Event 84000 starts with initial seeds (37374333,21594972).
+G4WT2 > --> Event 85000 starts with initial seeds (30956800,11688860).
+G4WT7 > --> Event 86000 starts with initial seeds (71506387,55672048).
+G4WT5 > --> Event 87000 starts with initial seeds (12637487,37020699).
+G4WT5 > --> Event 88000 starts with initial seeds (15316027,55930396).
+G4WT3 > --> Event 89000 starts with initial seeds (11934590,35876980).
+G4WT0 > --> Event 90000 starts with initial seeds (39995392,64084741).
+G4WT0 > --> Event 91000 starts with initial seeds (80696358,502063).
+G4WT6 > --> Event 92000 starts with initial seeds (57528862,51074627).
+G4WT4 > --> Event 93000 starts with initial seeds (82612156,28227334).
+G4WT4 > --> Event 94000 starts with initial seeds (83836705,46236350).
+G4WT1 > --> Event 95000 starts with initial seeds (82820694,39821199).
+G4WT2 > --> Event 96000 starts with initial seeds (31898870,65279515).
+G4WT2 > --> Event 97000 starts with initial seeds (61723786,41167640).
+G4WT7 > --> Event 98000 starts with initial seeds (49211792,29697478).
+G4WT3 > --> Event 99000 starts with initial seeds (24310632,11044765).
+G4WT5 > --> Event 100000 starts with initial seeds (20254799,71714079).
+G4WT5 > --> Event 101000 starts with initial seeds (50424334,43465086).
+G4WT0 > --> Event 102000 starts with initial seeds (6175645,25527038).
+G4WT5 > --> Event 103000 starts with initial seeds (75760991,98299920).
+G4WT4 > --> Event 104000 starts with initial seeds (78077820,82441389).
+G4WT4 > --> Event 105000 starts with initial seeds (89013508,37230616).
+G4WT4 > --> Event 106000 starts with initial seeds (39894800,63804740).
+G4WT1 > --> Event 107000 starts with initial seeds (91429162,4655245).
+G4WT1 > --> Event 108000 starts with initial seeds (44831873,24894243).
+G4WT2 > --> Event 109000 starts with initial seeds (48721415,42835052).
+G4WT7 > --> Event 110000 starts with initial seeds (60378716,52083964).
+G4WT7 > --> Event 111000 starts with initial seeds (77093651,65897091).
+G4WT3 > --> Event 112000 starts with initial seeds (61912041,14395601).
+G4WT0 > --> Event 113000 starts with initial seeds (81507134,51921764).
+G4WT0 > --> Event 114000 starts with initial seeds (78473088,26211953).
+G4WT5 > --> Event 115000 starts with initial seeds (78117771,54620086).
+G4WT6 > --> Event 116000 starts with initial seeds (72246831,10626307).
+G4WT6 > --> Event 117000 starts with initial seeds (13670454,97988518).
+G4WT4 > --> Event 118000 starts with initial seeds (50190928,11530160).
+G4WT4 > --> Event 119000 starts with initial seeds (21382797,46337276).
+G4WT1 > --> Event 120000 starts with initial seeds (68058274,48555441).
+G4WT2 > --> Event 121000 starts with initial seeds (63371562,15379840).
+G4WT2 > --> Event 122000 starts with initial seeds (88779905,19728839).
+G4WT7 > --> Event 123000 starts with initial seeds (32272637,30082673).
+G4WT0 > --> Event 124000 starts with initial seeds (95566711,44814804).
+G4WT0 > --> Event 125000 starts with initial seeds (18029340,45680665).
+G4WT5 > --> Event 126000 starts with initial seeds (73106576,73703823).
+G4WT3 > --> Event 127000 starts with initial seeds (40789314,97986690).
+G4WT3 > --> Event 128000 starts with initial seeds (21542815,63451300).
+G4WT4 > --> Event 129000 starts with initial seeds (15232406,62370018).
+G4WT1 > --> Event 130000 starts with initial seeds (77282719,37991099).
+G4WT1 > --> Event 131000 starts with initial seeds (39663092,70047107).
+G4WT6 > --> Event 132000 starts with initial seeds (37333955,60930697).
+G4WT2 > --> Event 133000 starts with initial seeds (28632380,84464545).
+G4WT2 > --> Event 134000 starts with initial seeds (18667045,18131163).
+G4WT0 > --> Event 135000 starts with initial seeds (93387264,36685237).
+G4WT0 > --> Event 136000 starts with initial seeds (34614918,65248313).
+G4WT5 > --> Event 137000 starts with initial seeds (38575194,87435857).
+G4WT7 > --> Event 138000 starts with initial seeds (88152181,60351069).
+G4WT7 > --> Event 139000 starts with initial seeds (70442067,32850735).
+G4WT1 > --> Event 140000 starts with initial seeds (42128257,17565180).
+G4WT4 > --> Event 141000 starts with initial seeds (57469070,17768215).
+G4WT3 > --> Event 142000 starts with initial seeds (76971085,82250218).
+G4WT4 > --> Event 143000 starts with initial seeds (87968404,53032587).
+G4WT6 > --> Event 144000 starts with initial seeds (48734182,18187509).
+G4WT6 > --> Event 145000 starts with initial seeds (10486604,14399441).
+G4WT0 > --> Event 146000 starts with initial seeds (29077320,97797363).
+G4WT2 > --> Event 147000 starts with initial seeds (87902954,84989557).
+G4WT2 > --> Event 148000 starts with initial seeds (7615810,26067613).
+G4WT1 > --> Event 149000 starts with initial seeds (18160936,23297978).
+G4WT1 > ... merge Root all H1 :  - done
+G4WT1 > ... write Root file : myresult_t1.root - done
+G4WT1 > ... close Root file : myresult_t1.root - done
+G4WT1 > ... delete Root empty file : myresult_t1.root - done
+G4WT2 > ... merge Root all H1 :  - done
+G4WT2 > ... write Root file : myresult_t2.root - done
+G4WT2 > ... close Root file : myresult_t2.root - done
+G4WT2 > ... delete Root empty file : myresult_t2.root - done
+G4WT0 > ... merge Root all H1 :  - done
+G4WT0 > ... write Root file : myresult_t0.root - done
+G4WT0 > ... close Root file : myresult_t0.root - done
+G4WT0 > ... delete Root empty file : myresult_t0.root - done
+G4WT6 > ... merge Root all H1 :  - done
+G4WT6 > ... write Root file : myresult_t6.root - done
+G4WT6 > ... close Root file : myresult_t6.root - done
+G4WT6 > ... delete Root empty file : myresult_t6.root - done
+G4WT7 > ... merge Root all H1 :  - done
+G4WT7 > ... write Root file : myresult_t7.root - done
+G4WT7 > ... close Root file : myresult_t7.root - done
+G4WT7 > 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : Analysis_W021
+      issued by : G4XmlAnalysisManager::CloseFile()
+      Removing file myresult_t7.root failed
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4WT7 > ... delete Root empty file : myresult_t7.root - done
+G4WT4 > ... merge Root all H1 :  - done
+G4WT4 > ... write Root file : myresult_t4.root - done
+G4WT4 > ... close Root file : myresult_t4.root - done
+G4WT4 > 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : Analysis_W021
+      issued by : G4XmlAnalysisManager::CloseFile()
+      Removing file myresult_t4.root failed
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4WT4 > ... delete Root empty file : myresult_t4.root - done
+G4WT5 > ... merge Root all H1 :  - done
+G4WT5 > ... write Root file : myresult_t5.root - done
+G4WT5 > ... close Root file : myresult_t5.root - done
+G4WT5 > 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : Analysis_W021
+      issued by : G4XmlAnalysisManager::CloseFile()
+      Removing file myresult_t5.root failed
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4WT5 > ... delete Root empty file : myresult_t5.root - done
+G4WT3 > ... merge Root all H1 :  - done
+G4WT3 > ... write Root file : myresult_t3.root - done
+G4WT3 > ... close Root file : myresult_t3.root - done
+G4WT3 > 
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : Analysis_W021
+      issued by : G4XmlAnalysisManager::CloseFile()
+      Removing file myresult_t3.root failed
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4WT3 > ... delete Root empty file : myresult_t3.root - done
+
+ The run is 150000 neutron of 25 meV within G4_Gd (D =  3 cm  L = 6 cm )
+
+ Process calls frequency :
+                Decay=      1      RadioactiveDecay=902787038        Transportation=-862476687
+              annihil=3952255                 compt=77196509                  conv=11810177
+                eBrem=42056884                 eIoni=-455762700                 hIoni=   7632
+           hadElastic=3114296               ionIoni=902689234                   msc=417026343
+             nCapture=899517977      neutronInelastic=    447                  phot=136230942
+        photonNuclear=   3683 
+
+ List of generated particles:
+           Ar36:    2139  Emean =  38.155 meV	( 0.1528 meV --> 199.44 meV)
+           Ar37:     148  Emean =  635.16 eV 	( 31.129 eV  --> 1.1492 keV)
+           Ar38:      44  Emean =  48.659 meV	( 0.42928 meV --> 252.74 meV)
+           Ar39:       4  Emean =  165.08 eV 	( 72.587 eV  --> 275.78 eV )
+           Ar40:    5533  Emean =   8.244 eV 	( 0.029104 meV --> 3.1109 keV)
+           Ar41:    5477  Emean =  264.89 eV 	( 56.066 eV  --> 499.03 eV )
+            C12:   15726  Emean =  38.735 meV	( 0.030923 meV --> 283.94 meV)
+            C13:     159  Emean =  99.071 eV 	( 0.59117 meV --> 7.3858 keV)
+            C14:     444  Emean =  42.007 keV	( 41.897 keV --> 42.148 keV)
+            C15:       1  Emean =  22.577 meV	( 22.577 meV --> 22.577 meV)
+          Ce140:   10857  Emean =  53.034 keV	( 53.034 keV --> 53.034 keV)
+           Cl37:     148  Emean =  9.5618 eV 	( 9.5544 eV  --> 9.62 eV )
+          Dy161:    5610  Emean =  117.74 meV	( 2.1828 meV --> 2.9397 eV )
+  Dy161[103.062]:      42  Emean =  69.684 meV	( 2.7649 meV --> 99.099 meV)
+  Dy161[131.759]:    1400  Emean =  937.67 meV	( 13.155 meV --> 2.2278 eV )
+  Dy161[212.952]:       1  Emean =  622.07 meV	( 622.07 meV --> 622.07 meV)
+  Dy161[25.651]:    4330  Emean =  193.57 meV	( 7.9744 meV --> 2.814 eV )
+  Dy161[366.975]:       6  Emean =  415.35 meV	( 43.685 meV --> 704.98 meV)
+  Dy161[418.234]:       1  Emean =  89.523 meV	( 89.523 meV --> 89.523 meV)
+  Dy161[43.820]:      14  Emean =    50.3 meV	( 11.7 meV --> 120.34 meV)
+  Dy161[451.432]:       1  Emean =  432.34 meV	( 432.34 meV --> 432.34 meV)
+  Dy161[550.254]:       6  Emean =  33.227 meV	( 3.1141 meV --> 68.889 meV)
+  Dy161[74.567]:    4985  Emean =  849.93 meV	( 2.3283 meV --> 2.6027 eV )
+          Eu153:   27548  Emean =  150.76 meV	( 24.418 meV --> 818.34 meV)
+  Eu153[103.180]:   15969  Emean =   326.8 meV	( 17.055 meV --> 505.94 meV)
+  Eu153[172.853]:    4250  Emean =  259.06 meV	( 242.81 meV --> 337.28 meV)
+  Eu153[83.367]:     239  Emean =  70.651 meV	( 0.69849 meV --> 342.96 meV)
+  Eu153[97.431]:   10368  Emean =  420.63 meV	( 19.965 meV --> 521.4 meV)
+          Gd152:   10857  Emean =     217 meV	( 0.029104 meV --> 526.27 eV )
+          Gd153:   27548  Emean =  73.367 eV 	( 3.638 meV --> 1.0568 keV)
+          Gd154:    2498  Emean =  146.78 eV 	( 0.17462 meV --> 11.03 keV)
+          Gd155:  195561  Emean =  14.709 eV 	( 0.029104 meV --> 1.256 keV)
+          Gd156: 166900974  Emean =  109.41 eV 	( 0.029104 meV --> 10.65 keV)
+          Gd157: 2815822  Emean =  333.88 meV	( 0.029104 meV --> 8.2479 keV)
+          Gd158: 732571687  Emean =  117.94 eV 	( 0 meV --> 6.7813 keV)
+          Gd159:   10346  Emean =  89.814 eV 	( 11.991 meV --> 5.944 keV)
+          Gd160:   37543  Emean =  9.2217 eV 	( 0.029104 meV --> 14.271 keV)
+          Gd161:    5610  Emean =  63.587 eV 	( 47.439 meV --> 605.58 eV )
+            K39:       4  Emean =  4.3557 eV 	( 3.3126 eV  --> 6.9394 eV )
+            K41:    5477  Emean =  22.292 eV 	( 3.3535 eV  --> 110.12 eV )
+  K41[1293.609]:    5432  Emean =  17.916 eV 	( 165.06 meV --> 34.728 eV )
+  K41[1677.235]:       1  Emean =  17.389 eV 	( 17.389 eV  --> 17.389 eV )
+            N14:    2842  Emean =  7.1921 eV 	( 0.021828 meV --> 9.0694 keV)
+            N15:      22  Emean =  2.3708 keV	( 1.0241 meV --> 5.0551 keV)
+          Nd144:   10857  Emean =  53.777 keV	( 53.777 keV --> 53.777 keV)
+            O16:   25796  Emean =  1.2616 eV 	( 0.010914 meV --> 7.3126 keV)
+            O17:       9  Emean =  9.9837 eV 	( 7.7416 meV --> 89.465 eV )
+            O18:      43  Emean =  40.904 meV	( 2.0191 meV --> 129.15 meV)
+          Sm148:   10857  Emean =  58.106 keV	( 58.106 keV --> 58.106 keV)
+          Tb159:   10346  Emean =  1.9583 eV 	( 11.35 meV --> 6.4671 eV )
+  Tb159[137.506]:      25  Emean =  449.18 meV	( 150.09 meV --> 2.3672 eV )
+  Tb159[348.283]:      33  Emean =  1.7531 eV 	( 202.62 meV --> 2.8505 eV )
+  Tb159[363.545]:    1318  Emean =  1.4825 eV 	( 13.679 meV --> 3.2668 eV )
+  Tb159[57.996]:    2933  Emean =  2.8258 eV 	( 7.3924 meV --> 5.8825 eV )
+  Tb159[580.808]:       6  Emean =  716.19 meV	( 478.29 meV --> 1.146 eV )
+  Tb159[617.621]:       2  Emean =  809.04 meV	( 209.61 meV --> 1.4085 eV )
+          Tb161:    5610  Emean =  153.92 meV	( 10.565 meV --> 2.0713 eV )
+  Tb161[133.681]:     405  Emean =  283.23 meV	( 109.58 meV --> 968.37 meV)
+  Tb161[314.914]:    1550  Emean =  1.5073 eV 	( 21.071 meV --> 14.347 eV )
+  Tb161[394.364]:     137  Emean =  4.2355 eV 	( 24.535 meV --> 12.938 eV )
+  Tb161[417.228]:    4732  Emean =  6.8053 eV 	( 13.213 meV --> 13.033 eV )
+  Tb161[480.130]:     376  Emean =   4.254 eV 	( 37.224 meV --> 11.948 eV )
+  Tb161[488.780]:      25  Emean =  193.87 meV	( 31.374 meV --> 360.48 meV)
+  Tb161[56.289]:    3984  Emean =  417.99 meV	( 19.994 meV --> 1.6149 eV )
+  Tb161[585.776]:     321  Emean =  5.4515 eV 	( 217.29 meV --> 10.632 eV )
+          alpha:   32572  Emean =  1.9777 MeV	( 5.3569 meV --> 2.1468 MeV)
+      anti_nu_e:   27492  Emean =  646.62 keV	( 3.6563 keV --> 5.5505 MeV)
+             e+: 11810177  Emean =  1.7353 MeV	( 510.61 meV --> 7.5143 MeV)
+             e-: 1861587912  Emean =  70.286 keV	( 742.26 meV --> 8.5332 MeV)
+          gamma: -1050829733  Emean = -7.5908 MeV	( 2.251 meV --> 10.833 MeV)
+        neutron: 899850349  Emean =  155.91 meV	( 25 meV --> 1.352 MeV)
+           nu_e:   27696  Emean =  338.75 keV	( 262.98 keV --> 813.84 keV)
+         proton:     445  Emean =  583.02 keV	( 189.09 eV  --> 584.44 keV)
+
+ Mean energy deposit per event = 1.6052 MeV;  rms = 360.74 keV
+ Mean energy flow per event    = 52.738 GeV;  rms = 339.7 MeV
+
+ List of particles emerging from the container :
+            C14:       1  Emean =  31.297 keV	( 31.297 keV --> 31.297 keV) 	Eflow/event = 208.65 meV
+      anti_nu_e:   27492  Emean =  646.62 keV	( 3.6563 keV --> 5.5505 MeV) 	Eflow/event = 118.51 keV
+             e+: 7871456  Emean =  1.7533 MeV	( 1.2782 keV --> 7.4576 MeV) 	Eflow/event = 92.009 MeV
+             e-: 49779734  Emean =  1.4435 MeV	( 1.0002 keV --> 8.5072 MeV) 	Eflow/event = 479.06 MeV
+          gamma: -1198874535  Emean =  -6.527 MeV	( 990.59 eV  --> 10.833 MeV) 	Eflow/event = 52.167 GeV
+        neutron:  481924  Emean =   240.5 eV 	( 0.019895 meV --> 1.2625 MeV) 	Eflow/event = 772.7 eV 
+           nu_e:   27696  Emean =  338.75 keV	( 262.98 keV --> 813.84 keV) 	Eflow/event = 62.546 keV
+         proton:      18  Emean =  334.19 keV	( 94.224 keV --> 488.68 keV) 	Eflow/event = 40.102 eV 
+... write Root file : myresult.root - done
+... close Root file : myresult.root - done
+
+--------- Ranecu engine status ---------
+ Initial seed (index) = 0
+ Current couple of seeds = 1644556538, 255029235
+----------------------------------------

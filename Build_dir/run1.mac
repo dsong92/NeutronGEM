@@ -1,0 +1,34 @@
+#
+# Macro file for "AmBe.cc"
+#
+/tracking/verbose 0
+/control/verbose 0
+/run/verbose 1
+#
+##/testhadr/det/setAbsorMat BeO
+##/testhadr/det/setContMat Stainless-Steel
+##/testhadr/det/setAbsorRadius 15 mm
+##/testhadr/det/setAbsorLength 60 mm
+##/testhadr/det/setContThick  2.4 mm
+#
+/run/initialize
+#
+/process/list
+#
+#/gun/particle neutron
+#/gun/ion 95 241
+#/gun/energy 25 meV
+#/gun/number 6000
+#
+/analysis/setFileName myresult
+/analysis/h1/set 1 300  0. 300.  keV #gammas
+/analysis/h1/set 3 1000  0. 9.  MeV #gammas
+/analysis/h1/set 4 1000  0. 3.  MeV #gammas
+/analysis/h1/set 5 250  0. 250. keV #e-
+/analysis/h1/set 9 300  0. 3. MeV #e-
+/analysis/h2/setX 0 100 -100 100 mm
+/analysis/h2/setY 0 100 -100 100 mm
+#
+/run/printProgress 10000
+#
+/run/beamOn 100000
