@@ -1,0 +1,4 @@
+/run/initialize
+
+/gun/number 6000
+/run/beamOn 10
