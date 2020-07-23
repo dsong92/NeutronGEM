@@ -241,10 +241,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
   // GEM structure
   G4double chamberX =  10.*cm, chamberY = 10.*cm;
   //@@@@@@@@@@@@ Gadolinium setting
-  G4double GdZ =  125.*um;
-  G4double Gap_Drift = 5.*mm;
-  G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -125.*um);
-  G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -5.25*mm);
+  //G4double GdZ =  125.*um;
+  //G4double Gap_Drift = 5.*mm;
+  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -125.*um);
+  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -5.25*mm);
   //@@@@@@@@@@@@ Gd 3mm setting
   //G4double GdZ =  125.*um;
   //G4double Gap_Drift = 1.5*mm;
@@ -261,10 +261,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
   //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -125.*um);
   //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -10.25*mm);
   //@@@@@@@@@@@@ Gd 30mm setting
-  //G4double GdZ =  125.*um;
-  //G4double Gap_Drift = 15*mm;
-  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -125.*um);
-  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -15.25*mm);
+  G4double GdZ =  125.*um;
+  G4double Gap_Drift = 15*mm;
+  G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -125.*um);
+  G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -15.25*mm);
   //@@@@@@@@@@@@ Normal 3mm setting
   //G4double GdZ =  50.*um;
   //G4double Gap_Drift = 1.5*mm;

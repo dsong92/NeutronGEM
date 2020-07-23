@@ -62,7 +62,18 @@
 #include "G4RadioactiveDecay.hh"
 #include "G4PhysicsListHelper.hh"
 #include "G4GenericIon.hh"
+#include "G4EmPenelopePhysics.hh" // for low EM physics
+#include "G4PhotoElectricEffect.hh"
+#include "G4PenelopePhotoElectricModel.hh"
 
+#include "G4ComptonScattering.hh"
+#include "G4PenelopeComptonModel.hh"
+
+#include "G4GammaConversion.hh"
+#include "G4PenelopeGammaConversionModel.hh"
+
+#include "G4RayleighScattering.hh"
+#include "G4PenelopeRayleighModel.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 PhysicsList::PhysicsList()
@@ -70,7 +81,9 @@ PhysicsList::PhysicsList()
  fHadronElastic(nullptr), fHadronInelastic(nullptr),
  fIonElastic(nullptr), fIonInelastic(nullptr),
  fGammaNuclear(nullptr), fElectromagnetic(nullptr),
- fDecay(nullptr), fRadioactiveDecay(nullptr)
+ fDecay(nullptr), fRadioactiveDecay(nullptr),
+ fLowEnergyEM(nullptr), fPhotoElectric(nullptr), fComptonScatter(nullptr), fRayleigh(nullptr)
+ 
 {
   G4int verb = 0;
   SetVerboseLevel(verb);
@@ -112,9 +125,24 @@ PhysicsList::PhysicsList()
   RegisterPhysics(fGammaNuclear);
 
   // EM physics
-  fElectromagnetic = new ElectromagneticPhysics();
+  //fElectromagnetic = new ElectromagneticPhysics();
   ////fElectromagnetic = new G4EmStandardPhysics();
-  RegisterPhysics(fElectromagnetic);
+  //RegisterPhysics(fElectromagnetic);
+
+//------------ song add
+  fLowEnergyEM = new G4EmPenelopePhysics();
+  RegisterPhysics(fLowEnergyEM);
+ 
+  /*fPhotoElectric = new G4PhotoElectricEffect();
+  RegisterPhysics(fPhotoElectric); 
+  
+  fComptonScatter = new G4ComptonScattering();
+  RegisterPhysics(fComptonScatter);
+
+  fRayleigh = new G4RayleighScattering();
+  RegisterPhysics(fRayleigh);*/
+   
+//------------
 
   // Decay
   fDecay = new G4DecayPhysics();
@@ -146,10 +174,13 @@ void PhysicsList::ConstructProcess()
   fIonElastic->ConstructProcess();
   fIonInelastic->ConstructProcess();
   fGammaNuclear->ConstructProcess();
-  fElectromagnetic->ConstructProcess();
+  //fElectromagnetic->ConstructProcess();
   fDecay->ConstructProcess();
   fRadioactiveDecay->ConstructProcess();
-  
+  fLowEnergyEM->ConstructProcess(); //songad
+  //fPhotoElectric->ConstructProcess();
+  //fComptonScatter->ConstructProcess();
+  //fRayleigh->ConstructProcess(); 
   //fRadioactiveDecay->SetICM(true);
 
   // example of GetHadronicModel (due to bug in QGSP_BIC_AllHP)
@@ -166,12 +197,12 @@ void PhysicsList::ConstructProcess()
 void PhysicsList::SetCuts()
 {
   SetCutValue(0*mm, "proton");
-  //SetCutValue(10*km, "e-");
-  SetCutValue(0.05*mm, "e-");
-  //SetCutValue(10*km, "e+");
-  SetCutValue(0.01*mm, "e+");
-  //SetCutValue(10*km, "gamma");
-  SetCutValue(0.01*mm, "gamma");
+  SetCutValue(10*km, "e-");
+  //SetCutValue(0.01*mm, "e-");
+  SetCutValue(10*km, "e+");
+  //SetCutValue(0.01*mm, "e+");
+  SetCutValue(10*km, "gamma");
+  //SetCutValue(0.01*mm, "gamma");
   //SetCutValue(0.0002*um, "neutron");
 }
 
