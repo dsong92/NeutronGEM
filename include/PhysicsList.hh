@@ -55,6 +55,10 @@ private:
    G4VPhysicsConstructor* fElectromagnetic;
    G4VPhysicsConstructor* fDecay;
    G4VPhysicsConstructor* fRadioactiveDecay;
+   G4VPhysicsConstructor* fLowEnergyEM; //songadd
+   G4VPhysicsConstructor* fComptonScatter; //songadd
+   G4VPhysicsConstructor* fPhotoElectric; //songadd
+   G4VPhysicsConstructor* fRayleigh; //songadd
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

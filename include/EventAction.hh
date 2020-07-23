@@ -52,11 +52,13 @@ class EventAction : public G4UserEventAction
     void AddEdep (G4double Edep); // original
     void AddEflow(G4double Eflow);          
     void AddLength(G4double Length);          
+    void AddEdepGamma(G4double EdepGamma);
                 
   private:
     G4double fTotalEnergyDeposit;
     G4double fTotalEnergyFlow;   
     G4double fTotalLength;   //song add
+    G4double fTotalEnergyDepositGamma;   //song add
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -68,8 +68,8 @@ void HistoManager::Book()
                          "10","11","12","13","14","15","16","17","18"};
   const G4String title[] = 
       { "dummy",                                                       //0
-        "total energy deposit in 20mm DriftGap",                       //1
-        "dummy",                                                       //2
+        "energy deposit from alpha in DriftGap",                       //1
+        "energy deposit from gamma in DriftGap",                       //2
         "total kinetic energy flow",                                   //3
         "energy spectrum of emerging gamma",                           //4
         "energy spectrum of emerging e+-",                             //5

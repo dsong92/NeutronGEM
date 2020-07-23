@@ -69,7 +69,7 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
 
   // count processes
   if(aStep->GetTrack()->GetTrackID() == 1 ) return; // for reject neutron beam track  ** origial line _1
-  if(aStep->GetTrack()->GetParentID()!= 1 ) return; // for accept only secondary particle from neutron beam ** original line_2
+  //if(aStep->GetTrack()->GetParentID()!= 1 ) return; // for accept only secondary particle from neutron beam ** original line_2
 
   const G4StepPoint* endPoint = aStep->GetPostStepPoint(); //original
   const G4VProcess* process   = endPoint->GetProcessDefinedStep(); //original
@@ -99,13 +99,22 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
 	edepStep = aStep->GetTotalEnergyDeposit();
   	fEventAction->AddEdep(edepStep);
 	Position_Alpha = aStep->GetPostStepPoint()->GetPosition();
-	//G4cout<<vec.x()<<"||"<<vec.y()<<"||"<<vec.z()<<G4endl;
 	analysis->FillH2(1,Position_Alpha.x(), Position_Alpha.y());
 	analysis->FillH2(2,Position_Alpha.x(), Position_Alpha.z());
 	analysis->FillH2(3,Position_Alpha.y(), Position_Alpha.z());
   	fEventAction->AddLength(aStep->GetStepLength());
-	//G4cout<<"Trk,PrtID = "<<aStep->GetTrack()->GetTrackID()<<", "<<aStep->GetTrack()->GetParentID()<<"||"<<PreStepVol<<"->"<<PostStepVol<<"|| "<<aStep->GetStepLength()<<G4endl;
-	//G4cout<<particle->GetParticleName()<<"||"<<edepStep<<G4endl;
+  }
+
+  G4double edepStepGamma;
+  if(PreStepVol =="DriftGap"&&PostStepVol=="DriftGap" && particle->GetParticleName()=="gamma"){
+	edepStepGamma = aStep->GetTotalEnergyDeposit();
+  	fEventAction->AddEdepGamma(edepStepGamma);
+	//G4cout<<"D->D //"<<edepStepGamma<<G4endl;
+  }
+  if(PreStepVol =="DriftGap"&&PostStepVol=="Envelope" && particle->GetParticleName()=="gamma"){
+	edepStepGamma = aStep->GetTotalEnergyDeposit();
+  	fEventAction->AddEdepGamma(edepStepGamma);
+	//G4cout<<"D->E //"<<edepStepGamma<<G4endl;
   }
   //if(edepStep < 0.) return;
 

@@ -55,6 +55,8 @@ class Run : public G4Run
     void ParticleCount(G4String, G4double); 
     void AddEdep (G4double edep); //original
     void AddEflow (G4double eflow);                   
+    void AddLength (G4double Length);                   
+    void AddEdepGamma (G4double EdepGamma);                   
     void ParticleFlux(G4String, G4double); 
                           
     virtual void Merge(const G4Run*);

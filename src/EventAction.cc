@@ -44,7 +44,7 @@
 
 EventAction::EventAction()
 :G4UserEventAction(),
- fTotalEnergyDeposit(0.), fTotalEnergyFlow(0.), fTotalLength(0.)
+ fTotalEnergyDeposit(0.), fTotalEnergyFlow(0.), fTotalLength(0.), fTotalEnergyDepositGamma(0.)
 { }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -59,6 +59,7 @@ void EventAction::BeginOfEventAction(const G4Event*)
   fTotalEnergyDeposit = 0.;
   fTotalEnergyFlow = 0.; 
   fTotalLength = 0.; //song add
+  fTotalEnergyDepositGamma = 0.; //song add
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -79,17 +80,26 @@ void EventAction::AddLength(G4double Length)
   fTotalLength += Length;
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// song add
+void EventAction::AddEdepGamma(G4double EdepGamma)
+{
+  fTotalEnergyDepositGamma += EdepGamma;
+}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void EventAction::EndOfEventAction(const G4Event*)//original
 {
   Run* run = static_cast<Run*>(
              G4RunManager::GetRunManager()->GetNonConstCurrentRun());
              
-  run->AddEdep (fTotalEnergyDeposit);
-  run->AddEflow(fTotalEnergyFlow);
+  //run->AddEdep(fTotalEnergyDeposit);
+  //run->AddLength(fTotalLength);
+  //run->AddEdepGamma(fTotalEnergyDepositGamma);
+  //run->AddEflow(fTotalEnergyFlow);
   
   if(fTotalEnergyDeposit != 0. ) G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
-  if(fTotalEnergyFlow != 0. ) G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow); 
+  if(fTotalEnergyFlow != 0. ) G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
+  if(fTotalEnergyDepositGamma != 0.) G4AnalysisManager::Instance()->FillH1(2,fTotalEnergyDepositGamma);
   if(fTotalLength!=0.) G4AnalysisManager::Instance()->FillH1(14,fTotalLength); 
 }
 

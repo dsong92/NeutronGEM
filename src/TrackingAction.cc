@@ -105,9 +105,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
  Run* run = static_cast<Run*>(
               G4RunManager::GetRunManager()->GetNonConstCurrentRun());
 
- if(track->GetVolume()->GetName()=="boron" && track->GetNextVolume()->GetName() =="DriftGap" ){
-	 run->ParticleFlux(name,energy);               
- }
+ run->ParticleFlux(name,energy);               
 
  /*
  if(track->GetStep()->GetPreStepPoint()->GetProcessDefinedStep()->GetProcessName()=="Transportation") return;
