@@ -25,10 +25,10 @@
 /analysis/h1/set 3 1000  0. 9.  MeV #gammas
 /analysis/h1/set 4 1000  0. 3.  MeV #gammas
 /analysis/h1/set 5 250  0. 250. keV #e-
-/analysis/h1/set 9 300  0. 3. MeV #e-
+/analysis/h1/set 9 1000  0. 3. MeV #e-
 /analysis/h2/setX 0 100 -100 100 mm
 /analysis/h2/setY 0 100 -100 100 mm
 #
-/run/printProgress 10000
+/run/printProgress 100
 #
-/run/beamOn 100000
+/run/beamOn 1000
