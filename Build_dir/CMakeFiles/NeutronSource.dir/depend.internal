@@ -2910,6 +2910,10 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4AntiXibZero.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4AntiXicPlus.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4AntiXicZero.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4AtomicShell.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4AtomicShellEnumerator.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4AtomicTransitionManager.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4AugerTransition.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4AutoLock.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4BCAction.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4BCDecay.hh
@@ -2928,11 +2932,13 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4CascadeInterface.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ChargedGeantino.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4CollisionInitialState.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ComptonScattering.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4CrossSectionDataStore.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4CrossSectionInelastic.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4DMesonMinus.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4DMesonPlus.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4DMesonZero.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4DNAModelSubType.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4DataVector.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4DataVector.icc
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Decay.hh
@@ -2956,8 +2962,16 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Element.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ElementTable.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ElementVector.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmDataHandler.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmElementSelector.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmModelManager.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmParameters.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmParticleList.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmPenelopePhysics.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmProcessSubType.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmSaturation.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmStandardPhysics.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EmTableType.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EnergyRangeManager.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4EnvironmentUtils.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Eta.hh
@@ -2989,11 +3003,13 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4FermiMomentum.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4FissionFragmentGenerator.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4FissionProductYieldDist.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4FluoTransition.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ForceCondition.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Fragment.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4FragmentVector.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4GPILSelection.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Gamma.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4GammaConversion.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Geantino.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4GeneratorPrecompoundInterface.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4GenericIon.hh
@@ -3073,6 +3089,7 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4MaterialPropertyVector.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4MaterialTable.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4MesonSplitter.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4MscStepLimitType.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4MuonMinus.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4MuonPlus.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4NRESP71M03.hh
@@ -3083,6 +3100,7 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4NeutronBuilder.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4NeutronInelasticProcess.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4NeutronPHPBuilder.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4NuclearFormfactorType.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4NuclearPolarization.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4NucleiProperties.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Nucleon.hh
@@ -3098,6 +3116,7 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ParticleChange.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ParticleChange.icc
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ParticleChangeForDecay.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ParticleChangeForGamma.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ParticleChangeForRadDecay.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ParticleDefinition.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ParticleDefinition.icc
@@ -3194,10 +3213,16 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Parton.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PartonPair.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PartonVector.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PenelopeComptonModel.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PenelopeGammaConversionModel.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PenelopePhotoElectricModel.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PenelopeRayleighModel.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhotoElectricEffect.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhysicsBuilderInterface.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhysicsFreeVector.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhysicsListHelper.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhysicsListOrderingParameter.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhysicsLogVector.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhysicsModelCatalog.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhysicsOrderedFreeVector.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4PhysicsTable.hh
@@ -3241,6 +3266,7 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4RadioactiveDecayPhysics.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4RadioactiveDecayRatesToDaughter.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4RadioactivityTable.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4RayleighScattering.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ReactionProduct.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ReactionProductVector.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ReferenceCountedHandle.hh
@@ -3253,6 +3279,7 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4SPPartonInfo.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4SampleResonance.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4SandiaTable.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ShellData.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4ShiftedGaussian.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4SigmaMinus.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4SigmaMinusInelasticProcess.hh
@@ -3301,10 +3328,15 @@ CMakeFiles/NeutronSource.dir/src/PhysicsList.cc.o
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4Upsilon.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4V3DNucleus.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VAntiBarionBuilder.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VAtomDeexcitation.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VComponentCrossSection.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VCrossSectionDataSet.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VDecayChannel.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VDiscreteProcess.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VEmAngularDistribution.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VEmFluctuationModel.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VEmModel.hh
+ /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VEmProcess.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VExceptionHandler.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VFieldPropagation.hh
  /pad/dsong/geant4.10.06.p02-install/include/Geant4/G4VHadronModelBuilder.hh
