@@ -22,6 +22,7 @@
 #
 /analysis/setFileName myresult
 /analysis/h1/set 1 300  0. 3.  MeV #gammas
+/analysis/h1/set 2 100  0. 10.  keV #gammas
 /analysis/h1/set 3 1000  0. 9.  MeV #gammas
 /analysis/h1/set 4 1000  0. 3.  MeV #gammas
 /analysis/h1/set 5 250  0. 250. keV #e-
@@ -39,7 +40,13 @@
 
 /analysis/h2/setX 3 200 -100 100 mm
 /analysis/h2/setY 3 200 -10 1 mm
+
+/analysis/h2/setX 4 500 -0.5 0.001 mm
+/analysis/h2/setY 4 500 0 30 meV
+
+/analysis/h2/setX 5 500 -0.5 0.001 mm
+/analysis/h2/setY 5 500 0 3 MeV
 #
-/run/printProgress 100
+/run/printProgress 10000
 #
-/run/beamOn 1000
+/run/beamOn 100000

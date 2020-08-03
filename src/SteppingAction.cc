@@ -66,6 +66,19 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
   	  analysis->FillH2(0,aStep->GetTrack()->GetPosition().x(),aStep->GetTrack()->GetPosition().y());
   	}
   }
+  
+  //if(aStep->GetTrack()->GetVolume()->GetName()=="gadolinium" && aStep->GetTrack()->GetNextVolume()->GetName() =="gadolinium"){
+  if(aStep->GetPreStepPoint()->GetTouchable()->GetVolume()->GetName()=="gadolinium" && aStep->GetPostStepPoint()->GetTouchable()->GetVolume()->GetName() =="gadolinium"){
+  	if(aStep->GetTrack()->GetParentID()==0 && aStep->GetTrack()->GetTrackID()==1){
+  	  analysis->FillH2(4,aStep->GetPostStepPoint()->GetPosition().z(),aStep->GetPostStepPoint()->GetKineticEnergy());
+  	}
+  }
+
+  //if(aStep->GetTrack()->GetParentID()==0){
+    if(aStep->GetTrack()->GetParticleDefinition()->GetParticleName()=="alpha"){
+      analysis->FillH2(5,aStep->GetPostStepPoint()->GetPosition().z(),aStep->GetPostStepPoint()->GetKineticEnergy());
+    }
+  //}
 
   // count processes
   if(aStep->GetTrack()->GetTrackID() == 1 ) return; // for reject neutron beam track  ** origial line _1
@@ -95,7 +108,7 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
   G4ThreeVector Position_Alpha;
   
   //if(PreStepVol =="DriftGap"&&PostStepVol=="DriftGap" && particle == G4Alpha::Alpha()) edepStep = aStep->GetTotalEnergyDeposit();
-  if(PreStepVol =="DriftGap"&&PostStepVol=="DriftGap" && particle->GetParticleName()=="alpha"){
+  if(aStep->GetTrack()->GetParentID()== 1 &&PreStepVol =="DriftGap"&&PostStepVol=="DriftGap" && particle->GetParticleName()=="alpha"){
 	edepStep = aStep->GetTotalEnergyDeposit();
   	fEventAction->AddEdep(edepStep);
 	Position_Alpha = aStep->GetPostStepPoint()->GetPosition();
@@ -105,17 +118,30 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
   	fEventAction->AddLength(aStep->GetStepLength());
   }
 
-  G4double edepStepGamma;
+  G4double edepStepGamma = aStep->GetTotalEnergyDeposit();
+/*
+  if(PreStepVol == "gadolinium" && particle->GetParticleName()=="gamma"){
+	  G4cout<<PreStepVol<<" || "<<PostStepVol<<" || Ekin-> "<<energy <<" || Edep-> "<<edepStepGamma<<" || "<<process->GetProcessName()<<G4endl;
+	  G4cout<<"nonIninzing Edep -> "<<aStep->GetNonIonizingEnergyDeposit()<<G4endl;
+	  G4cout<<"GetCreatorProcess -> "<<aStep->GetTrack()->GetCreatorProcess()->GetProcessName()<<" || CurrentStepNum -> "<<aStep->GetTrack()->GetCurrentStepNumber()<<G4endl;
+  }
+*/
+  if(PreStepVol =="gadolinium"&&PostStepVol=="DriftGap" && particle->GetParticleName()=="gamma"){
+	edepStepGamma = aStep->GetTotalEnergyDeposit();
+  	fEventAction->AddEdepGamma(edepStepGamma);
+	//G4cout<<"D->D //"<<edepStepGamma<<" || process-> "<<process->GetProcessName()<<G4endl;
+  }
   if(PreStepVol =="DriftGap"&&PostStepVol=="DriftGap" && particle->GetParticleName()=="gamma"){
 	edepStepGamma = aStep->GetTotalEnergyDeposit();
   	fEventAction->AddEdepGamma(edepStepGamma);
-	//G4cout<<"D->D //"<<edepStepGamma<<G4endl;
+	//G4cout<<"D->D //"<<edepStepGamma<<" || process-> "<<process->GetProcessName()<<G4endl;
   }
   if(PreStepVol =="DriftGap"&&PostStepVol=="Envelope" && particle->GetParticleName()=="gamma"){
 	edepStepGamma = aStep->GetTotalEnergyDeposit();
   	fEventAction->AddEdepGamma(edepStepGamma);
-	//G4cout<<"D->E //"<<edepStepGamma<<G4endl;
+	//G4cout<<"D->D //"<<edepStepGamma<<" || process-> "<<process->GetProcessName()<<G4endl;
   }
+  
   //if(edepStep < 0.) return;
 
   if(PreStepVol  != "gadolinium") return;

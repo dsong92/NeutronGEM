@@ -59,7 +59,12 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   G4String name   = track->GetDefinition()->GetParticleName();
   G4double energy = track->GetKineticEnergy();
   Run* run = static_cast<Run*>(
-        G4RunManager::GetRunManager()->GetNonConstCurrentRun());   
+        G4RunManager::GetRunManager()->GetNonConstCurrentRun()); 
+  //G4cout<<"----------------------"<<G4endl; 
+  //if(track->GetParticleDefinition()->GetParticleName()=="alpha") G4cout<<"PreSuerTrack , E of alpha  -> "<<track->GetKineticEnergy()<<"|| Track Length -> "<<track->GetTrackLength()<<G4endl;
+  //G4cout<<"PreUser, Name    -> "<<track->GetParticleDefinition()->GetParticleName()<<" , createProc ->"<<track->GetCreatorProcess()->GetProcessName()<<G4endl;
+  //G4cout<<"PreUser, TID,PID -> "<<track->GetTrackID()<<", "<<track->GetParentID()<<G4endl;
+ //G4cout<<"PreUserTrack|CurrentStepnumber -> "<<track->GetCurrentStepNumber()<<" | paricleName->"<<track->GetParticleDefinition()->GetParticleName()<<" || TID,PID ->"<<track->GetTrackID()<<", "<<track->GetParentID()<<G4endl;
 /*
   G4AnalysisManager* analysis = G4AnalysisManager::Instance();
   G4int ih = 0;
@@ -106,7 +111,8 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
               G4RunManager::GetRunManager()->GetNonConstCurrentRun());
 
  run->ParticleFlux(name,energy);               
-
+ //if(track->GetParticleDefinition()->GetParticleName()=="alpha") G4cout<<"PostUserTrack , E of alpha -> "<<track->GetKineticEnergy()<<"|| Track Length -> "<<track->GetTrackLength()<<G4endl;
+ //G4cout<<"PostUserTrack|CurrentStepnumber -> "<<track->GetCurrentStepNumber()<<" | paricleName->"<<track->GetParticleDefinition()->GetParticleName()<<" || TID,PID ->"<<track->GetTrackID()<<", "<<track->GetParentID()<<G4endl;
  /*
  if(track->GetStep()->GetPreStepPoint()->GetProcessDefinedStep()->GetProcessName()=="Transportation") return;
  if(track->GetTrackID() == 1) return;

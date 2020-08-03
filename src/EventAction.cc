@@ -100,6 +100,7 @@ void EventAction::EndOfEventAction(const G4Event*)//original
   if(fTotalEnergyDeposit != 0. ) G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
   if(fTotalEnergyFlow != 0. ) G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
   if(fTotalEnergyDepositGamma != 0.) G4AnalysisManager::Instance()->FillH1(2,fTotalEnergyDepositGamma);
+  //if(fTotalEnergyDepositGamma != 0.) G4cout<<"EndOfEvtAction ->"<<fTotalEnergyDepositGamma<<G4endl;
   if(fTotalLength!=0.) G4AnalysisManager::Instance()->FillH1(14,fTotalLength); 
 }
 

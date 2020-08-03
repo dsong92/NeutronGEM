@@ -22,6 +22,8 @@ setenv G4NEUTRONHP_USE_ONLY_PHOTONEVAPORATION 1
 #
 #unsetenv G4CASCADE_USE_PRECOMPOUND
 #setenv G4CASCADE_USE_PRECOMPOUND 1
+#setenv G4LEDATA /home/dsong/geant4.10.05.p01-build/data/G4EMLOW7.7
+#env |grep G4LEDATA
 
 env |grep G4NEUTRONHP
 env |grep G4PHP

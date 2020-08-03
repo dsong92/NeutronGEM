@@ -81,7 +81,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(DetectorConstruction* det)
     = particleTable->FindParticle(particleName="neutron");
   fParticleGun->SetParticleDefinition(particle);
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,+1.));
-  fParticleGun->SetParticleEnergy(0.02*eV); // thermal neutro
+  fParticleGun->SetParticleEnergy(0.025*eV); // thermal neutro
   //--------------------songadd
   // electron setting
   //G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();

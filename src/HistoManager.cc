@@ -63,9 +63,9 @@ void HistoManager::Book()
   analysisManager->SetActivation(true);     //enable inactivation of histograms
 
   // Define histograms start values
-  const G4int kMaxHisto = 19;
+  const G4int kMaxHisto = 21;
   const G4String id[] = {"0","1","2","3","4","5","6","7","8","9",
-                         "10","11","12","13","14","15","16","17","18"};
+                         "10","11","12","13","14","15","16","17","18","19","20"};
   const G4String title[] = 
       { "dummy",                                                       //0
         "energy deposit from alpha in DriftGap",                       //1
@@ -85,7 +85,9 @@ void HistoManager::Book()
 	"Incident Neutron",					       //15
 	"Spread of Alpha , XY plane",				       //16
 	"Spread of Alpha , XZ plane",				       //17
-	"Spread of Alpha , YZ plane"				       //18
+	"Spread of Alpha , YZ plane",				       //18
+	"Penetration depth of Neutron vs E_kin",		       //19
+	"Generated alpha position vs E_kin"			       //20
       };
   // Default values (to be reset via /analysis/h1/set command) 
   G4int nbins = 100;

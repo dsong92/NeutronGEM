@@ -63,6 +63,24 @@
 #include "G4PhysicsListHelper.hh"
 #include "G4GenericIon.hh"
 #include "G4EmPenelopePhysics.hh" // for low EM physics
+#include "G4EmLivermorePhysics.hh" // for low EM physics
+#include "G4PhotoElectricEffect.hh"
+#include "G4PenelopePhotoElectricModel.hh"
+#include "G4LivermorePhotoElectricModel.hh"
+
+
+
+#include "G4ComptonScattering.hh"
+#include "G4PenelopeComptonModel.hh"
+
+#include "G4GammaConversion.hh"
+#include "G4PenelopeGammaConversionModel.hh"
+
+#include "G4RayleighScattering.hh"
+#include "G4PenelopeRayleighModel.hh"
+
+// gamma
+
 #include "G4PhotoElectricEffect.hh"
 #include "G4PenelopePhotoElectricModel.hh"
 
@@ -74,6 +92,54 @@
 
 #include "G4RayleighScattering.hh"
 #include "G4PenelopeRayleighModel.hh"
+#include "G4LivermorePhotoElectricModel.hh"
+
+#include "G4ComptonScattering.hh"
+#include "G4LivermoreComptonModel.hh"
+
+#include "G4GammaConversion.hh"
+#include "G4LivermoreGammaConversionModel.hh"
+
+#include "G4RayleighScattering.hh"
+#include "G4LivermoreRayleighModel.hh"
+
+
+
+// e-
+
+#include "G4eIonisation.hh"
+#include "G4PenelopeIonisationModel.hh"
+#include "G4UniversalFluctuation.hh"
+
+#include "G4eBremsstrahlung.hh"
+#include "G4PenelopeBremsstrahlungModel.hh"
+// e+
+
+#include "G4eplusAnnihilation.hh"
+#include "G4PenelopeAnnihilationModel.hh"
+
+
+// hadrons, ions
+
+#include "G4hIonisation.hh"
+#include "G4ionIonisation.hh"
+#include "G4hMultipleScattering.hh"
+#include "G4NuclearStopping.hh"
+//#include "G4NeutronCaptureAtRest.hh"
+// deexcitation
+
+#include "G4LossTableManager.hh"
+#include "G4UAtomicDeexcitation.hh"
+
+
+#include "G4BuilderType.hh"
+#include "G4ParticleDefinition.hh"
+#include "G4ProcessManager.hh"
+#include "G4PhysicsListHelper.hh"
+
+
+
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 PhysicsList::PhysicsList()
@@ -82,8 +148,8 @@ PhysicsList::PhysicsList()
  fIonElastic(nullptr), fIonInelastic(nullptr),
  fGammaNuclear(nullptr), fElectromagnetic(nullptr),
  fDecay(nullptr), fRadioactiveDecay(nullptr),
- fLowEnergyEM(nullptr), fPhotoElectric(nullptr), fComptonScatter(nullptr), fRayleigh(nullptr)
- 
+ //fLowEnergyEM(nullptr), fPhotoElectric(nullptr), fComptonScatter(nullptr), fRayleigh(nullptr), fLowEPhot(nullptr)
+ fLowEnergyEM(nullptr) 
 {
   G4int verb = 0;
   SetVerboseLevel(verb);
@@ -93,7 +159,7 @@ PhysicsList::PhysicsList()
   new G4UnitDefinition( "millielectronVolt", "meV", "Energy", 1.e-3*eV);
   new G4UnitDefinition( "mm2/g",  "mm2/g", "Surface/Mass", mm2/g);
   new G4UnitDefinition( "um2/mg", "um2/mg","Surface/Mass", um*um/mg);
-    
+
   // Hadron Elastic scattering
   fHadronElastic = new HadronElasticPhysicsHP(verb);
   RegisterPhysics(fHadronElastic);
@@ -130,13 +196,18 @@ PhysicsList::PhysicsList()
   //RegisterPhysics(fElectromagnetic);
 
 //------------ song add
+  //fLowEnergyEM = new G4EmLivermorePhysics();
   fLowEnergyEM = new G4EmPenelopePhysics();
   RegisterPhysics(fLowEnergyEM);
  
-  /*fPhotoElectric = new G4PhotoElectricEffect();
-  RegisterPhysics(fPhotoElectric); 
+  //fPhotoElectric = new G4PhotoElectricEffect();
+  //RegisterPhysics(fPhotoElectric); 
+ 
+  //fLowEPhot = new G4LivermorePhotoElectricModel();
+  //RegisterPhysics(fLowEPhot); 
   
-  fComptonScatter = new G4ComptonScattering();
+
+  /*fComptonScatter = new G4ComptonScattering();
   RegisterPhysics(fComptonScatter);
 
   fRayleigh = new G4RayleighScattering();
@@ -163,12 +234,112 @@ PhysicsList::~PhysicsList()
 
 void PhysicsList::ConstructProcess()
 {
+  //------------------- Penelope ------ song add
+  G4PhysicsListHelper* list = G4PhysicsListHelper::GetPhysicsListHelper();
+
+  // Add standard EM Processes
+
+  auto particleIterator=GetParticleIterator();
+  particleIterator->reset();
+  while( (*particleIterator)() ){
+    G4ParticleDefinition* particle = particleIterator->value();
+    G4String particleName = particle->GetParticleName();
+
+    //Applicability range for Penelope models
+    //for higher energies, the Standard models are used   
+    G4double highEnergyLimit = 1*GeV;
+
+    if (particleName == "gamma") {
+      // gamma         
+/*
+      G4PhotoElectricEffect* phot = new G4PhotoElectricEffect();
+      G4PenelopePhotoElectricModel*
+      photModel = new G4PenelopePhotoElectricModel();
+      photModel->SetHighEnergyLimit(highEnergyLimit);
+      phot->AddEmModel(0, photModel);
+      list->RegisterProcess(phot, particle);
+
+      G4ComptonScattering* compt = new G4ComptonScattering();
+      G4PenelopeComptonModel*
+      comptModel = new G4PenelopeComptonModel();
+      comptModel->SetHighEnergyLimit(highEnergyLimit);
+      compt->AddEmModel(0, comptModel);
+      list->RegisterProcess(compt, particle);
+
+      G4GammaConversion* conv = new G4GammaConversion();
+      G4PenelopeGammaConversionModel*
+      convModel = new G4PenelopeGammaConversionModel();
+      convModel->SetHighEnergyLimit(highEnergyLimit);
+      conv->AddEmModel(0, convModel);
+      list->RegisterProcess(conv, particle);
+
+      G4RayleighScattering* rayl = new G4RayleighScattering();
+      G4PenelopeRayleighModel*
+      raylModel = new G4PenelopeRayleighModel();
+      raylModel->SetHighEnergyLimit(highEnergyLimit);
+      rayl->AddEmModel(0, raylModel);
+      list->RegisterProcess(rayl, particle);
+*/
+      G4PhotoElectricEffect* phot = new G4PhotoElectricEffect();
+      G4LivermorePhotoElectricModel*
+      photModel = new G4LivermorePhotoElectricModel();
+      photModel->SetHighEnergyLimit(highEnergyLimit);
+      phot->AddEmModel(0, photModel);
+      list->RegisterProcess(phot, particle);
+
+      G4ComptonScattering* compt = new G4ComptonScattering();
+      G4LivermoreComptonModel*
+      comptModel = new G4LivermoreComptonModel();
+      comptModel->SetHighEnergyLimit(highEnergyLimit);
+      compt->AddEmModel(0, comptModel);
+      list->RegisterProcess(compt, particle);
+
+      G4GammaConversion* conv = new G4GammaConversion();
+      G4LivermoreGammaConversionModel*
+      convModel = new G4LivermoreGammaConversionModel();
+      convModel->SetHighEnergyLimit(highEnergyLimit);
+      conv->AddEmModel(0, convModel);
+      list->RegisterProcess(conv, particle);
+
+      G4RayleighScattering* rayl = new G4RayleighScattering();
+      G4LivermoreRayleighModel*
+      raylModel = new G4LivermoreRayleighModel();
+      raylModel->SetHighEnergyLimit(highEnergyLimit);
+      rayl->AddEmModel(0, raylModel);
+      list->RegisterProcess(rayl, particle);
+
+      }
+      else if (particleName == "e-") {
+      //electron
+
+      G4eIonisation* eIoni = new G4eIonisation();
+      G4PenelopeIonisationModel*
+      eIoniModel = new G4PenelopeIonisationModel();
+      eIoniModel->SetHighEnergyLimit(highEnergyLimit);
+      eIoni->AddEmModel(0, eIoniModel, new G4UniversalFluctuation() );
+      list->RegisterProcess(eIoni, particle);
+
+      G4eBremsstrahlung* eBrem = new G4eBremsstrahlung();
+      G4PenelopeBremsstrahlungModel*
+      eBremModel = new G4PenelopeBremsstrahlungModel();
+      eBremModel->SetHighEnergyLimit(highEnergyLimit);
+      eBrem->AddEmModel(0, eBremModel);
+      list->RegisterProcess(eBrem, particle);
+      }
+      else if( particleName == "alpha" || particleName == "GenericIon" ) {
+      list->RegisterProcess(new G4ionIonisation, particle);
+      list->RegisterProcess(new G4hMultipleScattering, particle);
+      list->RegisterProcess(new G4NuclearStopping, particle);
+      //list->RegisterProcess(new G4NeutronCaptureAtRest, particle);
+      //list->RegisterProcess(new G4HadronPhysicsQGSP_BIC_HP, particle);
+      }
+  }
   // Transportation first (mandatory)
-  //
+
   AddTransportation();
 
   // Physics constructors
-  //
+
   fHadronElastic->ConstructProcess();
   fHadronInelastic->ConstructProcess();
   fIonElastic->ConstructProcess();
@@ -177,7 +348,7 @@ void PhysicsList::ConstructProcess()
   //fElectromagnetic->ConstructProcess();
   fDecay->ConstructProcess();
   fRadioactiveDecay->ConstructProcess();
-  fLowEnergyEM->ConstructProcess(); //songad
+  //fLowEnergyEM->ConstructProcess(); //songad
   //fPhotoElectric->ConstructProcess();
   //fComptonScatter->ConstructProcess();
   //fRayleigh->ConstructProcess(); 
@@ -190,6 +361,7 @@ void PhysicsList::ConstructProcess()
        = dynamic_cast<G4HadronicProcess*>(pManager->GetProcess("nCapture"));
   G4HadronicInteraction* model = process->GetHadronicModel("nRadCapture");
   if(model) model->SetMinEnergy(19.9*MeV);
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -203,7 +375,8 @@ void PhysicsList::SetCuts()
   //SetCutValue(0.01*mm, "e+");
   SetCutValue(10*km, "gamma");
   //SetCutValue(0.01*mm, "gamma");
-  //SetCutValue(0.0002*um, "neutron");
+  SetCutValue(0.0001*um, "neutron");
+  SetCutValue(0.0001*um, "alpha");
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

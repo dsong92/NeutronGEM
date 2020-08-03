@@ -33,6 +33,9 @@
 
 #include "G4VModularPhysicsList.hh"
 #include "globals.hh"
+#include "G4VPhysicsConstructor.hh"
+#include "globals.hh"
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -56,9 +59,10 @@ private:
    G4VPhysicsConstructor* fDecay;
    G4VPhysicsConstructor* fRadioactiveDecay;
    G4VPhysicsConstructor* fLowEnergyEM; //songadd
-   G4VPhysicsConstructor* fComptonScatter; //songadd
-   G4VPhysicsConstructor* fPhotoElectric; //songadd
-   G4VPhysicsConstructor* fRayleigh; //songadd
+   //G4VPhysicsConstructor* fComptonScatter; //songadd
+   //G4VPhysicsConstructor* fPhotoElectric; //songadd
+   //G4VPhysicsConstructor* fRayleigh; //songadd
+   //G4VPhysicsConstructor* fLowEPhot; //songadd
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
