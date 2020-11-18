@@ -213,7 +213,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
                       "World",               //its name
                       0,                     //its mother  volume
                       false,                 //no boolean operation
-                      77,                     //copy number
+                      0,                     //copy number
                       checkOverlaps);        //overlaps checking
 
   // Envelope

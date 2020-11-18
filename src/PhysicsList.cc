@@ -250,36 +250,6 @@ void PhysicsList::ConstructProcess()
     G4double highEnergyLimit = 1*GeV;
 
     if (particleName == "gamma") {
-      // gamma         
-/*
-      G4PhotoElectricEffect* phot = new G4PhotoElectricEffect();
-      G4PenelopePhotoElectricModel*
-      photModel = new G4PenelopePhotoElectricModel();
-      photModel->SetHighEnergyLimit(highEnergyLimit);
-      phot->AddEmModel(0, photModel);
-      list->RegisterProcess(phot, particle);
-
-      G4ComptonScattering* compt = new G4ComptonScattering();
-      G4PenelopeComptonModel*
-      comptModel = new G4PenelopeComptonModel();
-      comptModel->SetHighEnergyLimit(highEnergyLimit);
-      compt->AddEmModel(0, comptModel);
-      list->RegisterProcess(compt, particle);
-
-      G4GammaConversion* conv = new G4GammaConversion();
-      G4PenelopeGammaConversionModel*
-      convModel = new G4PenelopeGammaConversionModel();
-      convModel->SetHighEnergyLimit(highEnergyLimit);
-      conv->AddEmModel(0, convModel);
-      list->RegisterProcess(conv, particle);
-
-      G4RayleighScattering* rayl = new G4RayleighScattering();
-      G4PenelopeRayleighModel*
-      raylModel = new G4PenelopeRayleighModel();
-      raylModel->SetHighEnergyLimit(highEnergyLimit);
-      rayl->AddEmModel(0, raylModel);
-      list->RegisterProcess(rayl, particle);
-*/
       G4PhotoElectricEffect* phot = new G4PhotoElectricEffect();
       G4LivermorePhotoElectricModel*
       photModel = new G4LivermorePhotoElectricModel();
@@ -326,13 +296,13 @@ void PhysicsList::ConstructProcess()
       eBrem->AddEmModel(0, eBremModel);
       list->RegisterProcess(eBrem, particle);
       }
-      else if( particleName == "alpha" || particleName == "GenericIon" ) {
+      /*else if( particleName == "alpha" || particleName == "GenericIon" ) {
       list->RegisterProcess(new G4ionIonisation, particle);
       list->RegisterProcess(new G4hMultipleScattering, particle);
       list->RegisterProcess(new G4NuclearStopping, particle);
       //list->RegisterProcess(new G4NeutronCaptureAtRest, particle);
       //list->RegisterProcess(new G4HadronPhysicsQGSP_BIC_HP, particle);
-      }
+      }*/
   }
   // Transportation first (mandatory)
 
