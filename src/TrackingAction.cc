@@ -53,94 +53,49 @@ TrackingAction::TrackingAction(EventAction* event)
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void TrackingAction::PreUserTrackingAction(const G4Track* track)
-{  
-  //count secondary particles
-  if (track->GetTrackID() == 1) return;  
-  G4String name   = track->GetDefinition()->GetParticleName();
-  G4double energy = track->GetKineticEnergy();
-  Run* run = static_cast<Run*>(
-        G4RunManager::GetRunManager()->GetNonConstCurrentRun()); 
-  //G4cout<<"----------------------"<<G4endl; 
-  //if(track->GetParticleDefinition()->GetParticleName()=="alpha") G4cout<<"PreSuerTrack , E of alpha  -> "<<track->GetKineticEnergy()<<"|| Track Length -> "<<track->GetTrackLength()<<G4endl;
-  //G4cout<<"PreUser, Name    -> "<<track->GetParticleDefinition()->GetParticleName()<<" , createProc ->"<<track->GetCreatorProcess()->GetProcessName()<<G4endl;
-  //G4cout<<"PreUser, TID,PID -> "<<track->GetTrackID()<<", "<<track->GetParentID()<<G4endl;
- //G4cout<<"PreUserTrack|CurrentStepnumber -> "<<track->GetCurrentStepNumber()<<" | paricleName->"<<track->GetParticleDefinition()->GetParticleName()<<" || TID,PID ->"<<track->GetTrackID()<<", "<<track->GetParentID()<<G4endl;
-/*
-  G4AnalysisManager* analysis = G4AnalysisManager::Instance();
-  G4int ih = 0;
-  const G4ParticleDefinition* particle = track->GetParticleDefinition();
-  G4double StepEnergy = track->GetStep()->GetPreStepPoint()->GetKineticEnergy();
-  //const G4VPhysicalVolume *tmp_step = track->GetStep()->GetPreStepPoint()->GetTouchable()->GetVolume();
-  //G4cout<<track->GetStep()->GetPreStepPoint()->GetMaterial()->GetName()<<G4endl;
+{
+ //count secondary particle
+ if (track->GetTrackID() == 1) return;  
+ G4String name   = track->GetDefinition()->GetParticleName();
+ G4double energy = track->GetKineticEnergy();
+ Run* run = static_cast<Run*>(
+       G4RunManager::GetRunManager()->GetNonConstCurrentRun());
+ run->ParticleCount(name,energy);
 
-  if(track->GetStep()->GetPreStepPoint()->GetTouchable()->GetVolume()->GetName()=="World") return;
-  //if(track->GetVolume()->GetName()=="boron" && track->GetNextVolume()->GetName()=="DriftGap"){
-
-  if(track->GetStep()->GetPreStepPoint()->GetTouchable()->GetVolume()->GetName()=="gadolinium"){
-	  if(track->GetStep()->GetPostStepPoint()->GetTouchable()->GetVolume()->GetName()=="DriftGap"){
-		  run->ParticleCount(name,energy);
-		  if (particle == G4Gamma::Gamma())            ih = 4;
-		  else if (particle == G4Electron::Electron()) ih = 5;
-		  else if (particle == G4Positron::Positron()) ih = 5;
-		  else if (particle == G4Neutron::Neutron())   ih = 6;
-		  else if (particle == G4Proton::Proton())     ih = 7;
-		  else if (particle == G4Deuteron::Deuteron()) ih = 8;
-		  else if (particle == G4Alpha::Alpha())       ih = 9;
-		  if (ih > 0) analysis->FillH1(ih,StepEnergy); //original
-  	}
-  }
-  */
+ G4int ih = 0; 
+ const G4ParticleDefinition* particle = track->GetParticleDefinition();
+ G4AnalysisManager* analysis = G4AnalysisManager::Instance();
+ if (particle == G4Gamma::Gamma()){
+	analysis->FillH1(6,energy);
+	if(track->GetParentID()==1) analysis->FillH1(7,energy);
+	if(track->GetParentID()==2) analysis->FillH1(8,energy);
+	}
+ if (particle == G4Alpha::Alpha())              ih = 5;
+ if (ih > 0) analysis->FillH1(ih,energy); //original
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void TrackingAction::PostUserTrackingAction(const G4Track* track)
 {
- // keep only outgoing particle
- //G4StepStatus status = track->GetStep()->GetPostStepPoint()->GetStepStatus();
- //if(status != fWorldBoundary) return; 
 
+ // keep only outgoing particle
+ G4StepStatus status = track->GetStep()->GetPostStepPoint()->GetStepStatus();
+ if(status != fWorldBoundary) return; 
  
  const G4ParticleDefinition* particle = track->GetParticleDefinition();
  G4String name   = particle->GetParticleName();
  G4double energy = track->GetKineticEnergy();
-
  fEventAction->AddEflow(energy); 
 
  Run* run = static_cast<Run*>(
               G4RunManager::GetRunManager()->GetNonConstCurrentRun());
 
- run->ParticleFlux(name,energy);               
- //if(track->GetParticleDefinition()->GetParticleName()=="alpha") G4cout<<"PostUserTrack , E of alpha -> "<<track->GetKineticEnergy()<<"|| Track Length -> "<<track->GetTrackLength()<<G4endl;
- //G4cout<<"PostUserTrack|CurrentStepnumber -> "<<track->GetCurrentStepNumber()<<" | paricleName->"<<track->GetParticleDefinition()->GetParticleName()<<" || TID,PID ->"<<track->GetTrackID()<<", "<<track->GetParentID()<<G4endl;
- /*
- if(track->GetStep()->GetPreStepPoint()->GetProcessDefinedStep()->GetProcessName()=="Transportation") return;
- if(track->GetTrackID() == 1) return;
- if(track->GetParentID()!= 1) return;
- fEventAction->AddEflow(energy);  
- 
- // histograms: enery flow
- G4AnalysisManager* analysis = G4AnalysisManager::Instance();
- 
- G4int ih = 0; 
- G4String type   = particle->GetParticleType();      
- G4double charge = particle->GetPDGCharge();
+ run->ParticleFlux(name,energy);            
 
- if (charge > 3.)  ih = 10; 
- else if (particle == G4Gamma::Gamma())       ih = 4;
- else if (particle == G4Electron::Electron()) ih = 5;
- //else if (particle == G4Positron::Positron()) ih = 5;
- else if (particle == G4Neutron::Neutron())   ih = 6;
- else if (particle == G4Proton::Proton())     ih = 7;
- else if (particle == G4Deuteron::Deuteron()) ih = 8;
- else if (particle == G4Alpha::Alpha())       ih = 9;
- else if (type == "nucleus")                  ih = 10;
- else if (type == "baryon")                   ih = 11;
- else if (type == "meson")                    ih = 12;
- else if (type == "lepton")                   ih = 13;
- if (ih > 0) analysis->FillH1(ih,energy); //original
- //if (ih > 0 && ih!=5) analysis->FillH1(ih,energy); //original
-*/
+ // histograms: enery flow
+
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

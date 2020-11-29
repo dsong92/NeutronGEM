@@ -64,21 +64,67 @@ void HistoManager::Book()
 
   // Define histograms start values
   const G4int kMaxHisto = 21;
-  const G4String id[] = {"0","1","2","3","4","5","6","7","8","9",
-                         "10","11","12","13","14","15","16","17","18","19","20"};
+  //const G4String id[] = {"0","1","2","3","4","5","6","7","8","9",
+  //                       "10","11","12","13","14","15","16","17","18","19","20"};
+  const G4String id[] = 
+      { "dummy",							//0
+        "E_deposit_All",                          //1
+        "E_deposit Alpha",                        //2
+        "E_deposit gamma",                        //3
+        "E_deposit e+-",                          //4
+        "E_spectrum of emerging alpha",                            //5
+        "E_spectrum of emerging gamma",                            //6
+        "E_spectrum of secondary gamma",                           //7
+        "E_spectrum of third gamma",                               //8
+        "E_spectrum of emerging e-",                               //9
+        "PreStep_E_kin of alphas",                 //10
+        "PostStep_E_kin of alphas",                //11
+        "Num of N_cap",                                   //12
+        "Drift Length of Alpha",                        //13
+	"E_spectrum of emerging e+",				//14
+        "Incident Neutron",                                             //15 --- fixed
+        "Alpha, XY",                                   //16
+        "Alpha, XZ",                                   //17
+        "Alpha, YZ",                                   //18
+        "Penetration depth of Neutron vs E_kin",                        //19
+        "Generated alpha position vs E_kin"                             //20 
+      };
   const G4String title[] = 
+      { "dummy",							//0
+        "Energy deposit from All in DriftGap",                          //1
+        "Energy deposit from Alpha in DriftGap",                        //2
+        "Energy deposit from gamma in DriftGap",                        //3
+        "Energy deposit from e+- in DriftGap",                          //4
+        "energy spectrum of emerging alpha",                            //5
+        "energy spectrum of emerging gamma",                            //6
+        "energy spectrum of secondary gamma",                           //7
+        "energy spectrum of third gamma",                               //8
+        "Post_E_Kin of e- at entering Drift from B",                               //9
+        "pre_E_kin of alphas at entering Drift from B",                 //10
+        "post_E_kin of alphas at entering Drift from B",                //11
+        "number of captured neutron",                                   //12
+        "Length of Alpha particle in Drift gap",                        //13
+	"energy spectrum of emerging e+",				//14
+        "Incident Neutron",                                             //15 --- fixed
+        "Spread of Alpha , XY plane",                                   //16
+        "Spread of Alpha , XZ plane",                                   //17
+        "Spread of Alpha , YZ plane",                                   //18
+        "Penetration depth of Neutron vs E_kin",                        //19
+        "Generated alpha position vs E_kin"                             //20 
+      };
+/*  const G4String title[] = 
       { "dummy",                                                       //0
-        "energy deposit from alpha in DriftGap",                       //1
-        "energy deposit from gamma in DriftGap",                       //2
+        "Energy deposit from Alpha in DriftGap",                       //1
+        "Energy deposit from All in DriftGap",                         //2
         "total kinetic energy flow",                                   //3
         "energy spectrum of emerging gamma",                           //4
         "energy spectrum of emerging e+-",                             //5
         "energy spectrum of emerging neutrons",                        //6
-        "energy spectrum of emerging protons",                         //7
-        "energy spectrum of emerging deuterons",                       //8
-        "E_kin of alphas at entering Drift from B",                    //9
-        "energy spectrum of all others emerging ions",                 //10
-        "energy spectrum of all others emerging baryons",              //11
+        "E_deposit from all particle", 		                       //7
+        "number of captured neutron",		                       //8
+        "pre_E_kin of alphas at entering Drift from B",                //9
+        "post_E_kin of alphas at entering Drift from B",               //10
+        "Energy depoist from gamma in DriftGap", 	               //11
         "energy spectrum of all others emerging mesons",               //12
         "energy spectrum of all others emerging leptons (neutrinos)",  //13
 	"Length of Alpha particle in Drift gap",		       //14
@@ -89,6 +135,7 @@ void HistoManager::Book()
 	"Penetration depth of Neutron vs E_kin",		       //19
 	"Generated alpha position vs E_kin"			       //20
       };
+*/
   // Default values (to be reset via /analysis/h1/set command) 
   G4int nbins = 100;
   G4double vmin = 0.;

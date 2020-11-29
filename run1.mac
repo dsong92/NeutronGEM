@@ -3,7 +3,7 @@
 #
 /tracking/verbose 0
 /control/verbose 0
-/run/verbose 1
+/run/verbose 0
 #
 ##/testhadr/det/setAbsorMat BeO
 ##/testhadr/det/setContMat Stainless-Steel
@@ -21,13 +21,20 @@
 #/gun/number 6000
 #
 /analysis/setFileName myresult
-/analysis/h1/set 1 300  0. 3.  MeV #gammas
-/analysis/h1/set 2 100  0. 10.  keV #gammas
-/analysis/h1/set 3 1000  0. 9.  MeV #gammas
-/analysis/h1/set 4 1000  0. 3.  MeV #gammas
-/analysis/h1/set 5 250  0. 250. keV #e-
-/analysis/h1/set 9 300  0. 3. MeV #e-
-/analysis/h1/set 14 300  0. 10. mm #alpha
+/analysis/h1/set 1 200  0. 2.  MeV # E_deposit from All in DrfitGap
+/analysis/h1/set 2 200  0. 2.  MeV # E_deposit from alpha in DriftGap
+/analysis/h1/set 3 300  0. 3.  MeV # E_deposit from gamma in DriftGap
+/analysis/h1/set 4 300  0. 1.  MeV # E_deposit from e+- in DriftGap
+/analysis/h1/set 5 300  0. 3.  MeV # energy spectrum of emerging alpha
+/analysis/h1/set 6 300  0. 3.  MeV # energy spectrum of emerging gamma
+/analysis/h1/set 7 300  0. 3.  MeV # energy spectrum of emerging secondary gamma
+/analysis/h1/set 8 300  0. 3.  MeV # energy spectrum of emerging third gamma
+/analysis/h1/set 9 300  0. 1   MeV # E spectrum of e-
+/analysis/h1/set 10 300  0. 3. MeV # E_kin of alphas at entring DriftGap from Boron_pre
+/analysis/h1/set 11 300  0. 3. MeV # E_kin of alphas at entring DriftGap from Boron_post
+/analysis/h1/set 12 300  -1. 0. mm # number of captured neutron
+/analysis/h1/set 13 300  0. 10. mm # drift length of alpha 
+/analysis/h1/set 14 300  0. 3. MeV # E spectrum of e+
 
 /analysis/h2/setX 0 100 -100 100 mm
 /analysis/h2/setY 0 100 -100 100 mm
@@ -41,12 +48,12 @@
 /analysis/h2/setX 3 200 -100 100 mm
 /analysis/h2/setY 3 200 -10 1 mm
 
-/analysis/h2/setX 4 500 -0.5 0.001 mm
-/analysis/h2/setY 4 500 0 30 meV
+/analysis/h2/setX 4 500 -1 0 mm
+/analysis/h2/setY 4 500 0 50 meV
 
-/analysis/h2/setX 5 500 -0.5 0.001 mm
+/analysis/h2/setX 5 500 -1 0 mm
 /analysis/h2/setY 5 500 0 3 MeV
 #
-/run/printProgress 10000
+/run/printProgress 100000
 #
-/run/beamOn 100000
+/run/beamOn 1000000

@@ -182,6 +182,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
   G4Material* env_cadmium = nist->FindOrBuildMaterial("G4_Cd");
   G4Material* env_paraffin = nist->FindOrBuildMaterial("G4_PARAFFIN");
   G4Material* env_kapton = nist->FindOrBuildMaterial("G4_KAPTON");
+  G4Material* env_b4c = nist->FindOrBuildMaterial("G4_BORON_CARBIDE");
 
 
 
@@ -261,24 +262,41 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
   //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -125.*um);
   //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -10.25*mm);
   //@@@@@@@@@@@@ Gd 30mm setting
-  G4double GdZ =  125.*um;
-  G4double Gap_Drift = 15*mm;
-  G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -125.*um);
-  G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -15.25*mm);
-  //@@@@@@@@@@@@ Normal 3mm setting
-  //G4double GdZ =  50.*um;
+  //G4double GdZ =  125.*um;
+  //G4double Gap_Drift = 15*mm;
+  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -125.*um);
+  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -15.25*mm);
+  //@@@@@@@@@@@@ boron setting
+  //G4double GdZ =  250.*um;
+  //G4double Gap_Drift = 5*mm;
+  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -250.*um);
+  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -5.5*mm);
+  //@@@@@@@@@@@@ boron setting 500um with 3mm
+  //G4double GdZ =  1.*um;
   //G4double Gap_Drift = 1.5*mm;
-  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -50.*um);
-  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -1.6*mm);
-  //@@@@@@@@@@@@ Normal 10mm setting
-  //G4double GdZ =  50.*um;
-  //G4double Gap_Drift = 5.*mm;
-  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -50.*um);
-  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -5.1*mm);
+  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -1.*um);
+  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -1.502*mm);
+  //@@@@@@@@@@@@ boron setting 500um with 3mm
+  G4double GdZ =  250.*um;
+  G4double Gap_Drift = 1.5*mm;
+  G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -250.*um);
+  G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -2.0*mm);
+  //@@@@@@@@@@@@ boron setting 500um with 3mm
+  //G4double GdZ =  250.*um;
+  //G4double Gap_Drift = 1.5*mm;
+  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -250.*um);
+  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -2.0*mm);
+  //@@@@@@@@@@@@ boron setting 50um
+  //G4double GdZ =  25.*um;
+  //G4double Gap_Drift = 5*mm;
+  //G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -25.*um);
+  //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -5.05*mm);
+  //@@@@@@@@@@@@ Normal 3mm setting
    
 
   G4VSolid* Gadolinium =
-    new G4Box("Gd", chamberX, chamberY, GdZ);
+    //new G4Box("Gd", chamberX, chamberY, GdZ);
+    new G4Box("boron", chamberX, chamberY, GdZ);
 
   G4VSolid* DriftGapS =
     new G4Box("DriftGapname", chamberX, chamberY, Gap_Drift);
@@ -321,6 +339,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
     new G4LogicalVolume(Gadolinium,         //its solid
                         //env_gadolinium,          //its material ---------> Gadolnium
                         env_boron,          //its material -------> BORON
+                        //env_b4c,
                         //env_kapton,          //its material
                         "logicGd");           //its name
 
@@ -340,8 +359,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
      new G4PVPlacement(0,                       //no rotation
                     pos1,                    //at position
                     GdLogic,             //its logical volume
-                    "gadolinium",                //its name
-                    //"boron",                //its name
+                    //"gadolinium",                //its name
+                    "boron",                //its name
                     logicEnv,                //its mother  volume
                     false,                   //no boolean operation
                     2,                       //copy number

@@ -192,7 +192,7 @@ PhysicsList::PhysicsList()
 
   // EM physics
   //fElectromagnetic = new ElectromagneticPhysics();
-  ////fElectromagnetic = new G4EmStandardPhysics();
+  //fElectromagnetic = new G4EmStandardPhysics();
   //RegisterPhysics(fElectromagnetic);
 
 //------------ song add
@@ -234,6 +234,7 @@ PhysicsList::~PhysicsList()
 
 void PhysicsList::ConstructProcess()
 {
+/* 
   //------------------- Penelope ------ song add
   G4PhysicsListHelper* list = G4PhysicsListHelper::GetPhysicsListHelper();
 
@@ -250,8 +251,7 @@ void PhysicsList::ConstructProcess()
     G4double highEnergyLimit = 1*GeV;
 
     if (particleName == "gamma") {
-      // gamma         
-/*
+      // gamma   
       G4PhotoElectricEffect* phot = new G4PhotoElectricEffect();
       G4PenelopePhotoElectricModel*
       photModel = new G4PenelopePhotoElectricModel();
@@ -280,7 +280,7 @@ void PhysicsList::ConstructProcess()
       rayl->AddEmModel(0, raylModel);
       list->RegisterProcess(rayl, particle);
 */
-      G4PhotoElectricEffect* phot = new G4PhotoElectricEffect();
+/*      G4PhotoElectricEffect* phot = new G4PhotoElectricEffect();
       G4LivermorePhotoElectricModel*
       photModel = new G4LivermorePhotoElectricModel();
       photModel->SetHighEnergyLimit(highEnergyLimit);
@@ -307,8 +307,8 @@ void PhysicsList::ConstructProcess()
       raylModel->SetHighEnergyLimit(highEnergyLimit);
       rayl->AddEmModel(0, raylModel);
       list->RegisterProcess(rayl, particle);
-
-      }
+*/
+/*      }
       else if (particleName == "e-") {
       //electron
 
@@ -326,14 +326,15 @@ void PhysicsList::ConstructProcess()
       eBrem->AddEmModel(0, eBremModel);
       list->RegisterProcess(eBrem, particle);
       }
-      else if( particleName == "alpha" || particleName == "GenericIon" ) {
+*/
+      /*else if( particleName == "alpha" || particleName == "GenericIon" ) {
       list->RegisterProcess(new G4ionIonisation, particle);
       list->RegisterProcess(new G4hMultipleScattering, particle);
       list->RegisterProcess(new G4NuclearStopping, particle);
       //list->RegisterProcess(new G4NeutronCaptureAtRest, particle);
       //list->RegisterProcess(new G4HadronPhysicsQGSP_BIC_HP, particle);
-      }
-  }
+      }*/
+//  }
   // Transportation first (mandatory)
 
   AddTransportation();
@@ -348,11 +349,10 @@ void PhysicsList::ConstructProcess()
   //fElectromagnetic->ConstructProcess();
   fDecay->ConstructProcess();
   fRadioactiveDecay->ConstructProcess();
-  //fLowEnergyEM->ConstructProcess(); //songad
+  fLowEnergyEM->ConstructProcess(); //songad
   //fPhotoElectric->ConstructProcess();
   //fComptonScatter->ConstructProcess();
   //fRayleigh->ConstructProcess(); 
-  //fRadioactiveDecay->SetICM(true);
 
   // example of GetHadronicModel (due to bug in QGSP_BIC_AllHP)
   //
@@ -375,8 +375,8 @@ void PhysicsList::SetCuts()
   //SetCutValue(0.01*mm, "e+");
   SetCutValue(10*km, "gamma");
   //SetCutValue(0.01*mm, "gamma");
-  SetCutValue(0.0001*um, "neutron");
-  SetCutValue(0.0001*um, "alpha");
+  SetCutValue(10*km, "neutron");
+  SetCutValue(10*km, "alpha");
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

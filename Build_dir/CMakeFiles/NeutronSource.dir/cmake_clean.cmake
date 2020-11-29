@@ -16,8 +16,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/NeutronSource.dir/src/SteppingAction.cc.o"
   "CMakeFiles/NeutronSource.dir/src/SteppingVerbose.cc.o"
   "CMakeFiles/NeutronSource.dir/src/TrackingAction.cc.o"
-  "NeutronSource.pdb"
   "NeutronSource"
+  "NeutronSource.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

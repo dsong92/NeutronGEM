@@ -56,7 +56,7 @@ class Run : public G4Run
     void AddEdep (G4double edep); //original
     void AddEflow (G4double eflow);                   
     void AddLength (G4double Length);                   
-    void AddEdepGamma (G4double EdepGamma);                   
+    void AddEdepAll (G4double EdepAll);                   
     void ParticleFlux(G4String, G4double); 
                           
     virtual void Merge(const G4Run*);
