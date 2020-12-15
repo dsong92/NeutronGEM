@@ -54,6 +54,36 @@ HistoManager::~HistoManager()
 
 void HistoManager::Book()
 {
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  analysisManager->OpenFile(fFileName);
+
+  // Creating histograms
+  analysisManager->CreateH1("EdepAll","Edep from All particle", 100, 0., 3);
+  analysisManager->CreateH1("EdepAlpha","Edep from Alpha", 100, 0., 3);
+
+  analysisManager->CreateNtuple("event", "event");
+  analysisManager->CreateNtupleDColumn("eventID");  		 // id 0
+  analysisManager->CreateNtupleDColumn("EdepAll");  		 // id 1
+  analysisManager->CreateNtupleDColumn("EdepAlpha"); 		 // id 2
+  analysisManager->CreateNtupleDColumn("EdepGamma"); 		 // id 3
+  analysisManager->CreateNtupleDColumn("EdepElectron"); 	 // id 4
+  analysisManager->CreateNtupleDColumn("gen_Ekin_Alpha"); 	 // id 5
+  analysisManager->CreateNtupleDColumn("PreB_Ekin_Alpha");	 // id 6
+  analysisManager->CreateNtupleDColumn("PostB_Ekin_Alpha");	 // id 7
+  analysisManager->CreateNtupleDColumn("BNCap_depth_Alpha");	 // id 8
+  analysisManager->CreateNtupleIColumn("TID_AlPha");		 // id 9
+  analysisManager->CreateNtupleIColumn("PID_Alpha");		 // id 10
+  analysisManager->CreateNtupleDColumn("EofGamma");		 // id 11
+  analysisManager->CreateNtupleIColumn("TID_Gamma");		 // id 12
+  analysisManager->CreateNtupleIColumn("PID_Gamma");		 // id 13
+  analysisManager->CreateNtupleDColumn("EofElectron");		 // id 14
+  analysisManager->CreateNtupleIColumn("TID_Electron");		 // id 15
+  analysisManager->CreateNtupleIColumn("PID_Electron");		 // id 16
+  analysisManager->CreateNtupleDColumn("DriftLength_Alpha");  	 // id 17
+  
+  analysisManager->FinishNtuple();
+
+/*
   // Create or get analysis manager
   // The choice of analysis technology is done via selection of a namespace
   // in HistoManager.hh
@@ -112,30 +142,6 @@ void HistoManager::Book()
         "Penetration depth of Neutron vs E_kin",                        //19
         "Generated alpha position vs E_kin"                             //20 
       };
-/*  const G4String title[] = 
-      { "dummy",                                                       //0
-        "Energy deposit from Alpha in DriftGap",                       //1
-        "Energy deposit from All in DriftGap",                         //2
-        "total kinetic energy flow",                                   //3
-        "energy spectrum of emerging gamma",                           //4
-        "energy spectrum of emerging e+-",                             //5
-        "energy spectrum of emerging neutrons",                        //6
-        "E_deposit from all particle", 		                       //7
-        "number of captured neutron",		                       //8
-        "pre_E_kin of alphas at entering Drift from B",                //9
-        "post_E_kin of alphas at entering Drift from B",               //10
-        "Energy depoist from gamma in DriftGap", 	               //11
-        "energy spectrum of all others emerging mesons",               //12
-        "energy spectrum of all others emerging leptons (neutrinos)",  //13
-	"Length of Alpha particle in Drift gap",		       //14
-	"Incident Neutron",					       //15
-	"Spread of Alpha , XY plane",				       //16
-	"Spread of Alpha , XZ plane",				       //17
-	"Spread of Alpha , YZ plane",				       //18
-	"Penetration depth of Neutron vs E_kin",		       //19
-	"Generated alpha position vs E_kin"			       //20
-      };
-*/
   // Default values (to be reset via /analysis/h1/set command) 
   G4int nbins = 100;
   G4double vmin = 0.;
@@ -150,6 +156,7 @@ void HistoManager::Book()
   	G4int ig = analysisManager->CreateH2(id[k], title[k], nbins, vmin, vmax, nbins, vmin, vmax);
   	analysisManager->SetH2Activation(ig, false);}
   }
+*/
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

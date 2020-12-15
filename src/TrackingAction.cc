@@ -55,23 +55,26 @@ TrackingAction::TrackingAction(EventAction* event)
 void TrackingAction::PreUserTrackingAction(const G4Track* track)
 {
  //count secondary particle
- if (track->GetTrackID() == 1) return;  
+ //if (track->GetTrackID() == 1) return;  
  G4String name   = track->GetDefinition()->GetParticleName();
  G4double energy = track->GetKineticEnergy();
  Run* run = static_cast<Run*>(
        G4RunManager::GetRunManager()->GetNonConstCurrentRun());
  run->ParticleCount(name,energy);
 
- G4int ih = 0; 
+ G4int TrackID_tmp  = track->GetTrackID();
+ G4int ParentID_tmp = track->GetParentID();
+ G4double Depth_z = track->GetPosition().z();
  const G4ParticleDefinition* particle = track->GetParticleDefinition();
- G4AnalysisManager* analysis = G4AnalysisManager::Instance();
  if (particle == G4Gamma::Gamma()){
-	analysis->FillH1(6,energy);
-	if(track->GetParentID()==1) analysis->FillH1(7,energy);
-	if(track->GetParentID()==2) analysis->FillH1(8,energy);
+	fEventAction->FillGamma(energy, TrackID_tmp, ParentID_tmp);
 	}
- if (particle == G4Alpha::Alpha())              ih = 5;
- if (ih > 0) analysis->FillH1(ih,energy); //original
+ if (particle == G4Alpha::Alpha()){
+	fEventAction->FillAlpha(energy, TrackID_tmp, ParentID_tmp, Depth_z);
+	}
+ if (particle == G4Electron::Electron()){
+	fEventAction->FillElectron(energy, TrackID_tmp, ParentID_tmp);
+	}
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -92,10 +95,6 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
               G4RunManager::GetRunManager()->GetNonConstCurrentRun());
 
  run->ParticleFlux(name,energy);            
-
- // histograms: enery flow
-
-
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

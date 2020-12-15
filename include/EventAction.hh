@@ -55,14 +55,19 @@ class EventAction : public G4UserEventAction
     void AddEdepAll(G4double EdepAll);
     void AddEdepGamma(G4double EdepGamma);
     void AddEdepEl(G4double EdepEl);
+    void FillAlpha(G4double energy, G4int TID, G4int PID, G4double position);
+    void FillElectron(G4double energy, G4int TID, G4int PID);
+    void FillGamma(G4double energy, G4int TID, G4int PID);
                 
   private:
     G4double fTotalEnergyDeposit;
     G4double fTotalEnergyFlow;   
-    G4double fTotalLength;   //song add
-    G4double fTotalEnergyDepositAll;   //song add
-    G4double fTotalEnergyDepositGamma;   //song add
-    G4double fTotalEnergyDepositEl;   //song add
+    G4double fTotalLength;
+    G4double fTotalEnergyDepositAll;
+    G4double fTotalEnergyDepositGamma;
+    G4double fTotalEnergyDepositEl;
+    G4int fTID, fPID;
+    G4double fEnergy, fDepth;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

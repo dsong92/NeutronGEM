@@ -49,8 +49,11 @@ RunAction::RunAction(DetectorConstruction* det, PrimaryGeneratorAction* prim)
   : G4UserRunAction(),
     fDetector(det), fPrimary(prim), fRun(0), fHistoManager(0)
 {
- // Book predefined histograms
- fHistoManager = new HistoManager(); 
+  //auto analysisManager = G4AnalysisManager::Instance();
+  //analysisManager->SetNtupleDirectoryName("ntuple");
+
+  // Book predefined histograms
+  fHistoManager = new HistoManager();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -71,7 +74,7 @@ G4Run* RunAction::GenerateRun()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void RunAction::BeginOfRunAction(const G4Run*)
-{    
+{ 
   // show Rndm status
   if (isMaster) G4Random::showEngineStatus();
   
@@ -99,11 +102,14 @@ void RunAction::EndOfRunAction(const G4Run*)
   
   //save histograms      
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  if ( analysisManager->IsActive() ) {
+  /*if ( analysisManager->IsActive() ) {
     analysisManager->Write();
     analysisManager->CloseFile();
-  }
-      
+  }*/
+     
+  analysisManager->Write();
+  analysisManager->CloseFile();
+ 
   // show Rndm status
   if (isMaster) G4Random::showEngineStatus();
 }

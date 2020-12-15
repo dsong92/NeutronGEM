@@ -44,7 +44,6 @@
 
 #include "G4SystemOfUnits.hh"
 #include "G4UnitsTable.hh"
-                           
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 SteppingAction::SteppingAction(EventAction* event)
@@ -60,23 +59,7 @@ SteppingAction::~SteppingAction()
 
 void SteppingAction::UserSteppingAction(const G4Step* aStep)
 {
-  G4AnalysisManager* analysis = G4AnalysisManager::Instance(); // for Fill(ih,energy)
-  if(aStep->GetTrack()->GetVolume()->GetName()=="Envelope" && aStep->GetTrack()->GetNextVolume()->GetName() =="DriftGap"){
-  	if(aStep->GetTrack()->GetParentID()==0 && aStep->GetTrack()->GetTrackID()==1){
-  	  analysis->FillH2(0,aStep->GetTrack()->GetPosition().x(),aStep->GetTrack()->GetPosition().y());
-  	}
-  }
-  
-  if(aStep->GetPreStepPoint()->GetTouchable()->GetVolume()->GetName()=="boron" && aStep->GetPostStepPoint()->GetTouchable()->GetVolume()->GetName() =="boron"){
-  	if(aStep->GetTrack()->GetParentID()==0 && aStep->GetTrack()->GetTrackID()==1){
-  	  analysis->FillH2(4,aStep->GetPostStepPoint()->GetPosition().z(),aStep->GetPreStepPoint()->GetKineticEnergy());
-  	}
-  }
-
-  if(aStep->GetTrack()->GetParticleDefinition()->GetParticleName()=="alpha" && aStep->GetTrack()->GetCurrentStepNumber()==1){
-        analysis->FillH2(5,aStep->GetPostStepPoint()->GetPosition().z(),aStep->GetPreStepPoint()->GetKineticEnergy());
-	analysis->FillH1(12,aStep->GetPostStepPoint()->GetPosition().z());
-    }
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance(); // for Fill(ih,energy)
 
   // count processes
   const G4StepPoint* endPoint = aStep->GetPostStepPoint(); //original
@@ -92,20 +75,21 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
   if(PreStepVol=="World") return; // If PreStepPoint is World then track is disappeared so volume of poststep is null
   G4String PostStepVol = aStep->GetPostStepPoint()->GetTouchable()->GetVolume()->GetName();
 
-  const G4ParticleDefinition* particle = aStep->GetTrack()->GetParticleDefinition();
-  //G4double charge = particle->GetPDGCharge();
-  G4double energy = aStep->GetPostStepPoint()->GetKineticEnergy(); // For getting kinetic energy
+  if(aStep->GetTrack()->GetParticleDefinition()->GetParticleName()=="alpha" && aStep->GetTrack()->GetCurrentStepNumber()==1 && PreStepVol=="boron"){
+	//analysisManager->FillNtupleDColumn(5, aStep->GetPreStepPoint()->GetKineticEnergy());
+    }
 
+  const G4ParticleDefinition* particle = aStep->GetTrack()->GetParticleDefinition();
+  //G4double energy = aStep->GetPostStepPoint()->GetKineticEnergy(); // For getting kinetic energy
+  
   if(PreStepVol =="boron"&&PostStepVol=="DriftGap"){
 	//fEventAction->AddEdepAll(aStep->GetTotalEnergyDeposit());
 	if(particle->GetParticleName()=="alpha"){
-		//fEventAction->AddEdep(aStep->GetTotalEnergyDeposit());	
-  		//analysis->FillH1(9,aStep->GetPreStepPoint()->GetKineticEnergy());
-  		analysis->FillH1(10,aStep->GetPreStepPoint()->GetKineticEnergy());
-  		analysis->FillH1(11,aStep->GetPostStepPoint()->GetKineticEnergy());
+		analysisManager->FillNtupleDColumn(6, aStep->GetPreStepPoint()->GetKineticEnergy());
+		analysisManager->FillNtupleDColumn(7, aStep->GetPostStepPoint()->GetKineticEnergy());
 	}
 	if(particle->GetParticleName()=="e-"){
-  		analysis->FillH1(9,aStep->GetPostStepPoint()->GetKineticEnergy());
+  		//analysis->FillH1(9,aStep->GetPostStepPoint()->GetKineticEnergy());
 	}
   }
   
@@ -116,9 +100,9 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
 		fEventAction->AddEdep(aStep->GetTotalEnergyDeposit());
 		fEventAction->AddLength(aStep->GetStepLength());
 		Position_Alpha = aStep->GetPostStepPoint()->GetPosition();
-		analysis->FillH2(1,Position_Alpha.x(), Position_Alpha.y());
-		analysis->FillH2(2,Position_Alpha.x(), Position_Alpha.z());
-		analysis->FillH2(3,Position_Alpha.y(), Position_Alpha.z());
+		//analysis->FillH2(1,Position_Alpha.x(), Position_Alpha.y());
+		//analysis->FillH2(2,Position_Alpha.x(), Position_Alpha.z());
+		//analysis->FillH2(3,Position_Alpha.y(), Position_Alpha.z());
 	}
 	if(particle->GetParticleName()=="gamma"){
 		fEventAction->AddEdepGamma(aStep->GetTotalEnergyDeposit());

@@ -214,7 +214,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
                       "World",               //its name
                       0,                     //its mother  volume
                       false,                 //no boolean operation
-                      77,                     //copy number
+                      0,                     //copy number
                       checkOverlaps);        //overlaps checking
 
   // Envelope
@@ -278,9 +278,9 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
   //G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -1.502*mm);
   //@@@@@@@@@@@@ boron setting 500um with 3mm
   G4double GdZ =  250.*um;
-  G4double Gap_Drift = 1.5*mm;
+  G4double Gap_Drift = 5.*mm;
   G4ThreeVector pos1 = G4ThreeVector(0*cm, 0*cm, -250.*um);
-  G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -2.0*mm);
+  G4ThreeVector pos2 = G4ThreeVector(0*cm, 0*cm, -5.5*mm);
   //@@@@@@@@@@@@ boron setting 500um with 3mm
   //G4double GdZ =  250.*um;
   //G4double Gap_Drift = 1.5*mm;
