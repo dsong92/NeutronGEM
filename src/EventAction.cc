@@ -44,8 +44,8 @@
 
 EventAction::EventAction()
 :G4UserEventAction(),
- fTotalEnergyDeposit(0.), fTotalEnergyFlow(0.), fTotalLength(0.), fTotalEnergyDepositAll(0.),fTotalEnergyDepositGamma(0.),fTotalEnergyDepositEl(0.),
- fTID(-999.), fPID(-999.), fEnergy(-999.), fDepth(-999.)
+ fTotalEnergyDeposit(0.), fTotalEnergyFlow(0.), fTotalLength(0.), fTotalEnergyDepositAll(0.),fTotalEnergyDepositGamma(0.),fTotalEnergyDepositEl(0.),fTotalEnergyDepositLi(0.)
+ ,fTID(-1), fPID(-1.), fEnergy(-999.), fDepth(-999.), iter_alpha(0.), iter_gamma(0.), iter_electron(0.)
 { }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -63,10 +63,14 @@ void EventAction::BeginOfEventAction(const G4Event*)
   fTotalEnergyDepositAll = 0.;
   fTotalEnergyDepositGamma = 0.;
   fTotalEnergyDepositEl = 0.;
-  fTID = -999.; 
-  fPID = -999.;
+  fTotalEnergyDepositLi = 0.;
+  fTID = -1;
+  fPID = -1;
   fEnergy = -999.;
   fDepth = -999.;
+  iter_alpha = 0;
+  iter_gamma = 0;
+  iter_electron = 0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -81,6 +85,19 @@ void EventAction::FillAlpha(G4double energy, G4int TID, G4int PID, G4double Dept
   analysisManager->FillNtupleDColumn(8, fDepth);
   analysisManager->FillNtupleIColumn(9, fTID);
   analysisManager->FillNtupleIColumn(10,fPID);
+}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void EventAction::FillLithium(G4double energy, G4int TID, G4int PID, G4double Depth)
+{
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  fEnergy = energy;
+  fTID = TID; 
+  fPID = PID;
+  if(Depth != 0.) fDepth = Depth;
+  analysisManager->FillNtupleIColumn(24, fTID);
+  analysisManager->FillNtupleIColumn(25, fPID);
+  analysisManager->FillNtupleDColumn(26, fDepth);
+  analysisManager->FillNtupleDColumn(27, fEnergy);
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void EventAction::FillGamma(G4double energy, G4int TID, G4int PID)
@@ -98,16 +115,16 @@ void EventAction::FillElectron(G4double energy, G4int TID, G4int PID)
 {
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
   fEnergy = energy;
-  fTID = TID; 
+  fTID = TID;
   fPID = PID;
   analysisManager->FillNtupleDColumn(14, fEnergy);
-  analysisManager->FillNtupleIColumn(15, fTID);
-  analysisManager->FillNtupleIColumn(16, fPID);
+  analysisManager->FillNtupleIColumn(17, fTID);
+  analysisManager->FillNtupleIColumn(18, fPID);
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void EventAction::AddEdep(G4double Edep)
 {
-  fTotalEnergyDeposit += Edep;
+  if( Edep > 0 ) fTotalEnergyDeposit += Edep;
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void EventAction::AddEflow(G4double Eflow) 
@@ -125,17 +142,22 @@ void EventAction::AddLength(G4double Length)
 // song add
 void EventAction::AddEdepAll(G4double EdepAll)
 {
-  fTotalEnergyDepositAll += EdepAll;
+  if( EdepAll > 0) fTotalEnergyDepositAll += EdepAll;
 }
 
 void EventAction::AddEdepGamma(G4double EdepGamma)
 {
-  fTotalEnergyDepositGamma += EdepGamma;
+  if( EdepGamma > 0 ) fTotalEnergyDepositGamma += EdepGamma;
 }
 
 void EventAction::AddEdepEl(G4double EdepEl)
 {
-  fTotalEnergyDepositEl += EdepEl;
+  if( EdepEl > 0 ) fTotalEnergyDepositEl += EdepEl;
+}
+
+void EventAction::AddEdepLi(G4double EdepLi)
+{
+  if( EdepLi > 0 ) fTotalEnergyDepositLi += EdepLi;
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -155,21 +177,10 @@ void EventAction::EndOfEventAction(const G4Event* event)//original
   analysisManager->FillNtupleDColumn(2, fTotalEnergyDeposit);
   analysisManager->FillNtupleDColumn(3, fTotalEnergyDepositGamma);
   analysisManager->FillNtupleDColumn(4, fTotalEnergyDepositEl);
-  analysisManager->FillNtupleDColumn(17, fTotalLength);
+  analysisManager->FillNtupleDColumn(19, fTotalLength);
+  analysisManager->FillNtupleDColumn(23, fTotalEnergyDepositLi);
   analysisManager->AddNtupleRow(); 
  
-  //run->AddEdep(fTotalEnergyDeposit);
-  //run->AddLength(fTotalLength);
-  //run->AddEdepAll(fTotalEnergyDepositAll);
-  //run->AddEflow(fTotalEnergyFlow);
-  
-  //if(fTotalEnergyDepositAll != 0.) G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDepositAll);
-  //if(fTotalEnergyDeposit != 0. ) G4AnalysisManager::Instance()->FillH1(2,fTotalEnergyDeposit);
-  //if(fTotalEnergyDepositGamma != 0.) G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyDepositGamma);
-  //if(fTotalEnergyDepositEl != 0.) G4AnalysisManager::Instance()->FillH1(4,fTotalEnergyDepositEl);
-  //if(fTotalEnergyFlow != 0. ) G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
-  //if(fTotalEnergyDepositGamma != 0.) G4cout<<"EndOfEvtAction ->"<<fTotalEnergyDepositGamma<<G4endl;
-  //if(fTotalLength!=0.) G4AnalysisManager::Instance()->FillH1(13,fTotalLength); 
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

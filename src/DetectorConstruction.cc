@@ -340,6 +340,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
                         //env_gadolinium,          //its material ---------> Gadolnium
                         env_boron,          //its material -------> BORON
                         //env_b4c,
+                        //env_cadmium,
                         //env_kapton,          //its material
                         "logicGd");           //its name
 

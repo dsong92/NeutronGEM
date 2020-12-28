@@ -37,6 +37,9 @@
 #include "G4UserEventAction.hh"
 #include "globals.hh"
 #include "G4Track.hh"
+
+#include <vector>
+#include <array>
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class EventAction : public G4UserEventAction
@@ -45,7 +48,6 @@ class EventAction : public G4UserEventAction
     EventAction();
    ~EventAction();
 
-  public:
     virtual void BeginOfEventAction(const G4Event*);
     virtual void   EndOfEventAction(const G4Event*); //original
     
@@ -55,9 +57,11 @@ class EventAction : public G4UserEventAction
     void AddEdepAll(G4double EdepAll);
     void AddEdepGamma(G4double EdepGamma);
     void AddEdepEl(G4double EdepEl);
+    void AddEdepLi(G4double EdepLi);
     void FillAlpha(G4double energy, G4int TID, G4int PID, G4double position);
     void FillElectron(G4double energy, G4int TID, G4int PID);
     void FillGamma(G4double energy, G4int TID, G4int PID);
+    void FillLithium(G4double energy, G4int TID, G4int PID, G4double position);
                 
   private:
     G4double fTotalEnergyDeposit;
@@ -66,8 +70,12 @@ class EventAction : public G4UserEventAction
     G4double fTotalEnergyDepositAll;
     G4double fTotalEnergyDepositGamma;
     G4double fTotalEnergyDepositEl;
-    G4int fTID, fPID;
+    G4double fTotalEnergyDepositLi;
+	G4int fTID;
+	G4int fPID;
     G4double fEnergy, fDepth;
+	G4int iter_alpha, iter_gamma, iter_electron;
+	EventAction* fEventAction;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

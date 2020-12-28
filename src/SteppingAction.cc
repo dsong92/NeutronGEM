@@ -60,7 +60,6 @@ SteppingAction::~SteppingAction()
 void SteppingAction::UserSteppingAction(const G4Step* aStep)
 {
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance(); // for Fill(ih,energy)
-
   // count processes
   const G4StepPoint* endPoint = aStep->GetPostStepPoint(); //original
   const G4VProcess* process   = endPoint->GetProcessDefinedStep(); //original
@@ -69,46 +68,58 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
   run->CountProcesses(process);
 
   //if(aStep->GetTrack()->GetTrackID() == 1 ) return; // for reject neutron beam track  ** origial line _1
-  if(aStep->GetTrack()->GetParentID() == 0 ) return; // for accept only secondary particle from neutron beam ** original line_2
+  //if(aStep->GetTrack()->GetParentID() == 0 ) return; // for accept only secondary particle from neutron beam ** original line_2
   
   G4String PreStepVol = aStep->GetPreStepPoint()->GetTouchable()->GetVolume()->GetName();
   if(PreStepVol=="World") return; // If PreStepPoint is World then track is disappeared so volume of poststep is null
   G4String PostStepVol = aStep->GetPostStepPoint()->GetTouchable()->GetVolume()->GetName();
 
-  if(aStep->GetTrack()->GetParticleDefinition()->GetParticleName()=="alpha" && aStep->GetTrack()->GetCurrentStepNumber()==1 && PreStepVol=="boron"){
-	//analysisManager->FillNtupleDColumn(5, aStep->GetPreStepPoint()->GetKineticEnergy());
-    }
-
   const G4ParticleDefinition* particle = aStep->GetTrack()->GetParticleDefinition();
-  //G4double energy = aStep->GetPostStepPoint()->GetKineticEnergy(); // For getting kinetic energy
   
   if(PreStepVol =="boron"&&PostStepVol=="DriftGap"){
-	//fEventAction->AddEdepAll(aStep->GetTotalEnergyDeposit());
 	if(particle->GetParticleName()=="alpha"){
 		analysisManager->FillNtupleDColumn(6, aStep->GetPreStepPoint()->GetKineticEnergy());
 		analysisManager->FillNtupleDColumn(7, aStep->GetPostStepPoint()->GetKineticEnergy());
 	}
-	if(particle->GetParticleName()=="e-"){
-  		//analysis->FillH1(9,aStep->GetPostStepPoint()->GetKineticEnergy());
+	else if(particle->GetParticleName()=="e-"){
+		analysisManager->FillNtupleDColumn(15, aStep->GetPreStepPoint()->GetKineticEnergy());
+		analysisManager->FillNtupleDColumn(16, aStep->GetPostStepPoint()->GetKineticEnergy());
+	}
+	else if(particle->GetParticleName()=="Li7"){
+		analysisManager->FillNtupleDColumn(21, aStep->GetPreStepPoint()->GetKineticEnergy());
+		analysisManager->FillNtupleDColumn(22, aStep->GetPostStepPoint()->GetKineticEnergy());
 	}
   }
   
-  G4ThreeVector Position_Alpha;
-  if(PreStepVol =="DriftGap"&&PostStepVol=="DriftGap"){
-	fEventAction->AddEdepAll(aStep->GetTotalEnergyDeposit());
+  //G4ThreeVector Position_Alpha;
+  G4double TotalEdep = aStep->GetTotalEnergyDeposit();
+  G4double energy = aStep->GetPostStepPoint()->GetKineticEnergy(); // For getting kinetic energy
+  if( PreStepVol =="DriftGap" && PostStepVol=="DriftGap" && TotalEdep > 0 && energy > 0){
+	fEventAction->AddEdepAll(TotalEdep);
 	if(particle->GetParticleName()=="alpha"){
-		fEventAction->AddEdep(aStep->GetTotalEnergyDeposit());
+		fEventAction->AddEdep(TotalEdep);
 		fEventAction->AddLength(aStep->GetStepLength());
-		Position_Alpha = aStep->GetPostStepPoint()->GetPosition();
+		//Position_Alpha = aStep->GetPostStepPoint()->GetPosition();
 		//analysis->FillH2(1,Position_Alpha.x(), Position_Alpha.y());
 		//analysis->FillH2(2,Position_Alpha.x(), Position_Alpha.z());
 		//analysis->FillH2(3,Position_Alpha.y(), Position_Alpha.z());
 	}
-	if(particle->GetParticleName()=="gamma"){
-		fEventAction->AddEdepGamma(aStep->GetTotalEnergyDeposit());
+	else if(particle->GetParticleName()=="gamma"){
+		fEventAction->AddEdepGamma(TotalEdep);
 	}
-	if(particle->GetParticleName()=="e-"){
-		fEventAction->AddEdepEl(aStep->GetTotalEnergyDeposit());
+	else if(particle->GetParticleName()=="e-"){
+		fEventAction->AddEdepEl(TotalEdep);
+	}
+	else if(particle->GetParticleName()=="Li7"){
+		fEventAction->AddEdepLi(TotalEdep);
+	}
+	else{
+		//G4cout<<"particle Name-->"<<particle->GetParticleName()<<G4endl;
+		fEventAction->AddEdepAll(0);
+		fEventAction->AddEdep(0);
+		fEventAction->AddLength(0);
+		fEventAction->AddEdepGamma(0);
+		fEventAction->AddEdepEl(0);
 	}
   }
 }

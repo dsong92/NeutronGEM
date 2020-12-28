@@ -69,24 +69,36 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
  if (particle == G4Gamma::Gamma()){
 	fEventAction->FillGamma(energy, TrackID_tmp, ParentID_tmp);
 	}
- if (particle == G4Alpha::Alpha()){
+ else if (particle == G4Alpha::Alpha()){
 	fEventAction->FillAlpha(energy, TrackID_tmp, ParentID_tmp, Depth_z);
 	}
- if (particle == G4Electron::Electron()){
+ else if (particle == G4Electron::Electron()){
 	fEventAction->FillElectron(energy, TrackID_tmp, ParentID_tmp);
 	}
+ else if (particle->GetParticleName()=="Li7"){
+	fEventAction->FillLithium(energy, TrackID_tmp, ParentID_tmp, Depth_z);
+	}
+ else{
+	fEventAction->FillGamma(-999, -1, -1);
+	fEventAction->FillAlpha(-999, -1, -1, -999);
+	fEventAction->FillElectron(-999, -1, -1);
+	fEventAction->FillLithium(-999, -1, -1, -999);
+ 	}
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void TrackingAction::PostUserTrackingAction(const G4Track* track)
 {
+ const G4ParticleDefinition* particle = track->GetParticleDefinition();
+ G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+ if(track->GetParentID() == 0) analysisManager->FillH1(2,track->GetPosition().z());
 
  // keep only outgoing particle
  G4StepStatus status = track->GetStep()->GetPostStepPoint()->GetStepStatus();
  if(status != fWorldBoundary) return; 
  
- const G4ParticleDefinition* particle = track->GetParticleDefinition();
  G4String name   = particle->GetParticleName();
  G4double energy = track->GetKineticEnergy();
  fEventAction->AddEflow(energy); 

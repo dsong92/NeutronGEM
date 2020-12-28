@@ -48,6 +48,7 @@ class HistoManager
 
   private:
     void Book();
+	std::vector<G4int> vector;
     G4String fFileName;
 };
 

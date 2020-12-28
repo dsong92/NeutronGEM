@@ -370,13 +370,10 @@ void PhysicsList::SetCuts()
 {
   SetCutValue(0*mm, "proton");
   SetCutValue(10*km, "e-");
-  //SetCutValue(0.01*mm, "e-");
   SetCutValue(10*km, "e+");
-  //SetCutValue(0.01*mm, "e+");
   SetCutValue(10*km, "gamma");
-  //SetCutValue(0.01*mm, "gamma");
   SetCutValue(10*km, "neutron");
-  SetCutValue(10*km, "alpha");
+  SetCutValue(0*mm, "alpha");
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

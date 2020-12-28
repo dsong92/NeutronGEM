@@ -34,7 +34,8 @@
 #include "G4UnitsTable.hh"
 
 #include "G4SystemOfUnits.hh"
-
+#include "EventAction.hh"
+//#include "G4TNtupleManager.hh" // for create vector ntuple
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 HistoManager::HistoManager()
@@ -54,8 +55,10 @@ HistoManager::~HistoManager()
 
 void HistoManager::Book()
 {
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+/*  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
   analysisManager->OpenFile(fFileName);
+ 
+  //EventAction* fEventAction;  
 
   // Creating histograms
   analysisManager->CreateH1("EdepAll","Edep from All particle", 100, 0., 3);
@@ -82,80 +85,6 @@ void HistoManager::Book()
   analysisManager->CreateNtupleDColumn("DriftLength_Alpha");  	 // id 17
   
   analysisManager->FinishNtuple();
-
-/*
-  // Create or get analysis manager
-  // The choice of analysis technology is done via selection of a namespace
-  // in HistoManager.hh
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  analysisManager->SetFileName(fFileName);
-  analysisManager->SetVerboseLevel(1);
-  analysisManager->SetActivation(true);     //enable inactivation of histograms
-
-  // Define histograms start values
-  const G4int kMaxHisto = 21;
-  //const G4String id[] = {"0","1","2","3","4","5","6","7","8","9",
-  //                       "10","11","12","13","14","15","16","17","18","19","20"};
-  const G4String id[] = 
-      { "dummy",							//0
-        "E_deposit_All",                          //1
-        "E_deposit Alpha",                        //2
-        "E_deposit gamma",                        //3
-        "E_deposit e+-",                          //4
-        "E_spectrum of emerging alpha",                            //5
-        "E_spectrum of emerging gamma",                            //6
-        "E_spectrum of secondary gamma",                           //7
-        "E_spectrum of third gamma",                               //8
-        "E_spectrum of emerging e-",                               //9
-        "PreStep_E_kin of alphas",                 //10
-        "PostStep_E_kin of alphas",                //11
-        "Num of N_cap",                                   //12
-        "Drift Length of Alpha",                        //13
-	"E_spectrum of emerging e+",				//14
-        "Incident Neutron",                                             //15 --- fixed
-        "Alpha, XY",                                   //16
-        "Alpha, XZ",                                   //17
-        "Alpha, YZ",                                   //18
-        "Penetration depth of Neutron vs E_kin",                        //19
-        "Generated alpha position vs E_kin"                             //20 
-      };
-  const G4String title[] = 
-      { "dummy",							//0
-        "Energy deposit from All in DriftGap",                          //1
-        "Energy deposit from Alpha in DriftGap",                        //2
-        "Energy deposit from gamma in DriftGap",                        //3
-        "Energy deposit from e+- in DriftGap",                          //4
-        "energy spectrum of emerging alpha",                            //5
-        "energy spectrum of emerging gamma",                            //6
-        "energy spectrum of secondary gamma",                           //7
-        "energy spectrum of third gamma",                               //8
-        "Post_E_Kin of e- at entering Drift from B",                               //9
-        "pre_E_kin of alphas at entering Drift from B",                 //10
-        "post_E_kin of alphas at entering Drift from B",                //11
-        "number of captured neutron",                                   //12
-        "Length of Alpha particle in Drift gap",                        //13
-	"energy spectrum of emerging e+",				//14
-        "Incident Neutron",                                             //15 --- fixed
-        "Spread of Alpha , XY plane",                                   //16
-        "Spread of Alpha , XZ plane",                                   //17
-        "Spread of Alpha , YZ plane",                                   //18
-        "Penetration depth of Neutron vs E_kin",                        //19
-        "Generated alpha position vs E_kin"                             //20 
-      };
-  // Default values (to be reset via /analysis/h1/set command) 
-  G4int nbins = 100;
-  G4double vmin = 0.;
-  G4double vmax = 100.;
-  // Create all histograms as inactivated 
-  // as we have not yet set nbins, vmin, vmax
-  for (G4int k=0; k<kMaxHisto; k++) {
-	if(k<15){
-	G4int ih = analysisManager->CreateH1(id[k], title[k], nbins, vmin, vmax);
-        analysisManager->SetH1Activation(ih, false);}
-	else{
-  	G4int ig = analysisManager->CreateH2(id[k], title[k], nbins, vmin, vmax, nbins, vmin, vmax);
-  	analysisManager->SetH2Activation(ig, false);}
-  }
 */
 }
 

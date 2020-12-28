@@ -39,7 +39,7 @@
 #include "G4Run.hh"
 #include "G4UnitsTable.hh"
 #include "G4SystemOfUnits.hh"
-
+#include "EventAction.hh"
 #include "Randomize.hh"
 #include <iomanip>
 
@@ -49,11 +49,50 @@ RunAction::RunAction(DetectorConstruction* det, PrimaryGeneratorAction* prim)
   : G4UserRunAction(),
     fDetector(det), fPrimary(prim), fRun(0), fHistoManager(0)
 {
-  //auto analysisManager = G4AnalysisManager::Instance();
-  //analysisManager->SetNtupleDirectoryName("ntuple");
-
+  auto analysisManager = G4AnalysisManager::Instance();
+  analysisManager->SetNtupleDirectoryName("Ntuple");
+  
   // Book predefined histograms
-  fHistoManager = new HistoManager();
+  //fHistoManager = new HistoManager(); //original
+  //
+  //G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  analysisManager->OpenFile("NeutronSource");
+
+  analysisManager->CreateH1("EdepAll","Edep from All particle", 100, 0., 3);
+  analysisManager->CreateH1("EdepAlpha","Edep from Alpha", 100, 0., 3);
+  analysisManager->CreateH1("NCDepth","Neutron capture Depth", 100, -1., 0.1);
+
+  analysisManager->CreateNtuple("event", "event");
+  analysisManager->CreateNtupleDColumn("eventID");           // id 0
+  analysisManager->CreateNtupleDColumn("EdepAll");           // id 1
+  analysisManager->CreateNtupleDColumn("EdepAlpha");         // id 2
+  analysisManager->CreateNtupleDColumn("EdepGamma");         // id 3
+  analysisManager->CreateNtupleDColumn("EdepElectron");      // id 4
+  analysisManager->CreateNtupleDColumn("gen_Ekin_Alpha");    // id 5
+  analysisManager->CreateNtupleDColumn("PreB_Ekin_Alpha");   // id 6
+  analysisManager->CreateNtupleDColumn("PostB_Ekin_Alpha");  // id 7
+  analysisManager->CreateNtupleDColumn("BNCap_depth_Alpha");     // id 8
+  analysisManager->CreateNtupleIColumn("TID_AlPha");         // id 9
+  analysisManager->CreateNtupleIColumn("PID_Alpha");         // id 10
+  analysisManager->CreateNtupleDColumn("EofGamma");      // id 11
+  analysisManager->CreateNtupleIColumn("TID_Gamma");         // id 12
+  analysisManager->CreateNtupleIColumn("PID_Gamma");         // id 13
+  analysisManager->CreateNtupleDColumn("gen_Ekin_El");       // id 14
+  analysisManager->CreateNtupleDColumn("PreB_Ekin_El");       // id 15
+  analysisManager->CreateNtupleDColumn("PostB_Ekin_El");       // id 16
+  analysisManager->CreateNtupleIColumn("TID_Electron");      // id 17
+  analysisManager->CreateNtupleIColumn("PID_Electron");      // id 18
+  analysisManager->CreateNtupleDColumn("DriftLength_Alpha");     // id 19
+  analysisManager->CreateNtupleDColumn("BNCap_depth");   //id 20 
+  analysisManager->CreateNtupleDColumn("PreB_Ekin_Li");   //id 21 
+  analysisManager->CreateNtupleDColumn("PostB_Ekin_Li");    //id 22 
+  analysisManager->CreateNtupleDColumn("EdepLi");    //id 23 
+  analysisManager->CreateNtupleIColumn("TID_Li");    //id 24 
+  analysisManager->CreateNtupleIColumn("PID_Li");    //id 25 
+  analysisManager->CreateNtupleDColumn("gen_Li_position");    //id 26
+  analysisManager->CreateNtupleDColumn("gen_Ekin_Li");    //id 27
+  analysisManager->FinishNtuple();
+  
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
