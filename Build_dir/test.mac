@@ -1,9 +1,9 @@
 #
 # Macro file for "AmBe.cc"
 #
-/tracking/verbose 0
-/control/verbose 0
 /run/verbose 0
+/tracking/verbose 2
+/control/verbose 0
 
 /analysis/ntuple/setActivationToAll true
 #
@@ -14,12 +14,13 @@
 ##/testhadr/det/setContThick  2.4 mm
 #
 /run/initialize
+/run/numberOfThreads 1
 #
 #
 #/gun/particle neutron
 #/gun/ion 95 241
 #/gun/energy 25 meV
 #/gun/number 6000
-/run/printProgress 10000000
+/run/printProgress 10
 #
-/run/beamOn 10000000
+/run/beamOn 10
